@@ -208,5 +208,21 @@ $db['otherdb10']['swap_pre'] = "";
 $db['otherdb10']['autoinit'] = TRUE;
 $db['otherdb10']['stricton'] = FALSE;
 
+$db['crmdb']['hostname'] = "localhost";
+$db['crmdb']['username'] = "root";
+$db['crmdb']['password'] = "";
+$db['crmdb']['database'] = "crm";
+$db['crmdb']['dbdriver'] = "mysql";
+$db['crmdb']['dbprefix'] = "";
+$db['crmdb']['pconnect'] = FALSE;
+$db['crmdb']['db_debug'] = FALSE;
+$db['crmdb']['cache_on'] = FALSE;
+$db['crmdb']['cachedir'] = "";
+$db['crmdb']['char_set'] = "utf8";
+$db['crmdb']['dbcollat'] = "utf8_general_ci";
+$db['crmdb']['swap_pre'] = "";
+$db['crmdb']['autoinit'] = TRUE;
+$db['crmdb']['stricton'] = FALSE;
+
 /* End of file database.php */
 /* Location: ./application/config/database.php */

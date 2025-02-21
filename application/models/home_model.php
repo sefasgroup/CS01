@@ -13,6 +13,7 @@
                   $this->otherdb8 = $this->load->database('otherdb8', TRUE); //BCI
                   $this->otherdb9 = $this->load->database('otherdb9', TRUE); //SK JAKUT
                   $this->otherdb10 = $this->load->database('otherdb10', TRUE); //SP KALTARA
+                  $this->crmdb = $this->load->database('crmdb', TRUE); //CRM
             }
 
             function all($quartal,$year)
@@ -1720,6 +1721,16 @@
                   $this->db->where("DATE_FORMAT(CONCAT('$current_year-', end_date_periode), '%Y-%m-%d') >=", date('Y-m-d',strtotime($date)));
 
                   return $this->db->get();
+            }
+            
+
+            function cek_customer($id)
+            {
+                  $this->crmdb->select('*');
+                  $this->crmdb->from('db_customer');
+                  $this->crmdb->where('customer_ns_uniqueid',$id);
+                  $result = $this->crmdb->get();
+                  return $result->row();
             }
 
       }
