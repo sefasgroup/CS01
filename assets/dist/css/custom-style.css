@@ -1,42 +1,46 @@
-
-
-.sosmed {
-    font-family: Roboto;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    z-index: 1;
-    background-color: #F36C21;
-    text-align: center;
-    color: #fff;
-    font-size: 16px;
-    padding:20px 0;
-  }
-
-  .sosmed span {
-    padding-left: 40px;
-  }
-
-  @media (max-width: 768px) {
-    .sosmed span {
-      padding-left: 0px;
+    .sosmed {
+        font-family: Roboto;
+        position: relative;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        z-index: 1;
+        background-color: #F36C21;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        padding:20px 0;
     }
-  }
 
-  .sosmed a:link, a:visited, a:active {
-    color: #fff;	
-  }
+    .sosmed span {
+        padding-left: 40px;
+    }
+
+    @media (max-width: 768px) {
+        .sosmed {
+            margin-bottom: 40px;
+        }
+
+        .sosmed span {
+            padding-left: 0px;
+        }
+    }
+
+    .sosmed a:link, a:visited, a:active {
+        color: #fff;	
+    }
 
     .body {
         font-family: Roboto;
         background: #fff;
         width: 90%;
         position: relative;
+        display: flex;
+        margin-top: 20px;
         top: 15%;
         left: 5%;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        margin-bottom: 160px;
+        margin-bottom: 24px;
     }
 
     .header {
@@ -102,7 +106,9 @@
         flex-direction: column;
         align-items: flex-start;
         align-self: stretch;
+        margin-bottom: 24px;
     }
+
     .box.box-sefas > .box-header{
         padding: 0;
     }
@@ -128,12 +134,139 @@
         line-height: 20px
     }
 
-    .btn-sefas{
-        margin: 24px 0;
-        padding: var(--Padding-padding-2, 8px) var(--Padding-padding-4, 16px);
-        border-radius: 8px;
-        background: #F36C21;
-        color: var(--Base-White, #FDFDFD);
+    /* Menghapus outline & box-shadow di semua button */
+    button, 
+    button:hover, 
+    button:active, 
+    button:focus, 
+    button:focus-visible {
+        outline: none !important;
+        box-shadow: none !important;
+        border: none; /* Jika ada border hitam */
+    }
+
+    /* Khusus untuk tombol dengan class tertentu */
+    .btns, 
+    .btns:hover, 
+    .btns:active, 
+    .btns:focus, 
+    .btns:focus-visible {
+        outline: none !important;
+        box-shadow: none !important;
+        border: none;
     }
 
 
+    .btns{
+        outline: none !important;
+        box-shadow: none !important;
+        padding: var(--Paddng-padding-2, 8px) var(--Padding-padding-4, 16px);
+        border-radius: 8px;
+        color: var(--Base-White, #FDFDFD);
+        background: var(--Gray-gray-300, #D4D4D4);
+        text-decoration: none !important;
+        margin-right: 12px;
+        font-size: 16px;
+    }
+    
+    .btn-sefas,
+    .btn-sefas:hover, 
+    .btn-sefas:active, 
+    .btn-sefas:focus, 
+    .btn-sefas:focus-visible{
+        background: #F36C21;
+        outline: 1px solid #F36C21 !important;  
+    }
+    
+    .btn-sefas-cancel,
+    .btn-sefas-cancel:hover, 
+    .btn-sefas-cancel:active, 
+    .btn-sefas-cancel:focus, 
+    .btn-sefas-cancel:focus-visible{
+        background: var(--Base-White, #FDFDFD);
+        color: var(--Base-Black, #0A0A0A);
+        outline: 1px solid #888 !important;  
+    }
+
+    .body .form .box-body .form-group {
+        margin-bottom: 24px;
+    }
+
+    /* Optional: Memberikan jarak antar radio button */
+    .body .form .box-body .radio.gap {
+        margin-bottom: 20px; /* Jarak antar radio button */
+    }
+
+    .radio.gap span {
+        display: inline-block; /* Agar input tetap dalam alur */
+        width: 100%; /* Input menyesuaikan lebar */
+    }
+    
+    .radio.gap input[type="text"] {
+        margin: 0; /* Hapus margin bawaan */
+        padding: 4px 8px; /* Sesuaikan padding */
+        border: 1px solid #ccc; /* Beri border yang jelas */
+        border-radius: 4px;
+    }
+
+    .jabatan{
+        color: var(--Primary-Sefas, #F36C21);
+        font-family: Roboto;
+        font-size: 20px;
+        font-style: italic;
+        font-weight: 700;
+        line-height: 30px;
+        margin-top:20px;
+        margin-bottom:40px;
+    }
+
+    .labels{
+        color: var(--Base-Black, #0A0A0A);
+        /* Text/Body/Base/Medium */
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px; /* 150% */
+    }
+    
+    .labels-small{
+        color: var(--Base-Black, #0A0A0A);
+        /* Text/Body/Xs/Regular */
+        font-family: Roboto;
+        font-size: 12px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 18px; /* 150% */
+    }
+    
+    .components {
+        margin: 40px 0;
+    }
+
+    .table-radio {
+        width: auto;
+        border-collapse: collapse;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+    
+    .table-radio td {
+        padding: 8px 0;
+        vertical-align: top;
+    }
+    
+    .table-radio td:first-child {
+        width: 559px;
+        padding-right: 120px;
+        text-align: left;
+        height: 20px;
+    }
+    
+    .table-radio input[type="radio"] {
+        margin-right: 16px;
+        vertical-align: middle;
+    }
+    
+    
+    

@@ -12,15 +12,13 @@
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<!-- Bootstrap 3.3.7 -->
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/css/bootstrap.css">
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/font-awesome/css/font-awesome.min.css">
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/Ionicons/css/ionicons.min.css">
 	<!-- Custom style -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/custom-style.css">
-	<!-- Theme style -->
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css">
 	<!-- Google Font Roboto-->
 	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 	<!-- Sweet Alert -->
@@ -88,210 +86,209 @@
 					</div>
 
 					<div class="form-group form-group-sm">
-						<label for="name" class="col-sm-12">Nama Perusahaan <span class="danger">*</span></label>
+						<label for="name" class="col-sm-12 labels">Nama Perusahaan <span class="danger">*</span></label>
 						<div class="col-sm-12">
 						<input type="text" class="form-control" name="perusahaan" placeholder="Your answer" autocomplete="off" value="<?php echo $data->customer_name; ?>" readonly>
 						</div>
 					</div>
-					<span class="help-block"><?php echo form_error('perusahaan');?></span>
 
 					<div class="row">
 						<div class="col-md-6">
-							<p><b>Jabatan <span class="danger">*</span></b></p>
-							<div class="radio">
+							<p class="labels">Jabatan <span class="danger">*</span></p>
+							<div class="radio gap">
 								<label><input type="radio" name="jabatan" value="procurement">Procurement</label>
 							</div>
-							<div class="radio">
+							<div class="radio gap">
 								<label><input type="radio" name="jabatan" value="technical">Technical</label>
 							</div>
-							<div class="radio">
+							<div class="radio gap">
 								<label><input type="radio" name="jabatan" value="supply-chain">Supply Chain</label>
 							</div>
-							<div class="radio">
+							<div class="radio gap">
 								<label><input type="radio" name="jabatan" value="all">All</label>
 							</div>
-							<span class="help-block"><?php echo form_error('jabatan');?></span>
 						</div>
-
-						
+						<span class="help-block"><?php echo form_error('jabatan');?></span>
 					</div>
 					
-					<div>
-						<button type="button" name="next" class="next btn btn-sefas pull-left" value="Continue">
-							<strong>Next</strong>
-						</button>
+					<div class="button-action">
+						<button type="button" name="next" class="btns next pull-left" disabled>Next</button>
 					</div>
 				</fieldset>
 				<!-- END FORM START -->
 
 				<!-- FORM PROCUREMENT -->
 				<fieldset id="fieldset-procurement" style="display: none;">
-					<h1>Procurement</h1>
+					<p class="jabatan">PROCUREMENT</p>
 
 					<div class="form-group form-group-sm">
-						<label for="name_procurement" class="col-sm-12">Nama Lengkap <span class="danger">*</span></label>
+						<label for="name_procurement" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
 						<div class="col-sm-12">
 						<input type="text" class="form-control" name="name_procurement" autocomplete="off">
 						</div>
+						<span class="help-block"><?php echo form_error('name_procurement');?></span>
 					</div>
-					<span class="help-block"><?php echo form_error('name_procurement');?></span>
 					
 					<div class="form-group form-group-sm">
-			            <label for="email_procurement" class="col-sm-12">Email <span class="danger">*</span></label>
+			            <label for="email_procurement" class="col-sm-12 labels">Email <span class="danger">*</span></label>
 			              <div class="col-sm-12">
 			                <input type="email" class="form-control" name="email_procurement" autocomplete="off">
 			              </div>
+						  <span class="help-block"><?php echo form_error('email_procurement');?></span>
 			        </div>
-			        <span class="help-block"><?php echo form_error('email_procurement');?></span>
 
 					<div class="form-group form-group-sm">
-					<label for="phone_procurement" class="col-sm-12">No. Telpon <span class="danger">*</span></label>
+					<label for="phone_procurement" class="col-sm-12 labels">No. Telpon <span class="danger">*</span></label>
 						<div class="col-sm-12">
 						<input type="text" class="form-control" name="phone_procurement" autocomplete="off">
 						</div>
+						<span class="help-block"><?php echo form_error('phone_procurement');?></span>
 					</div>
-					<span class="help-block"><?php echo form_error('phone_procurement');?></span>
 					
 
-					<p><b>Perusahaan Bapak/Ibu bergerak di sektor <span class="danger">*</span></b></p>
-					<div class="row">
-						<div class="col-sm-2">
-							<div class="radio">
-								<label><input type="radio" name="sector" value="Agriculture">Agriculture</label>
+					<div class="components">
+						<p class="labels">Perusahaan Bapak/Ibu bergerak di sektor <span class="danger">*</span></p>
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="radio gap">
+									<label><input type="radio" name="sector" value="Agriculture">Agriculture</label>
+								</div>
+								<div class="radio gap">
+									<label><input type="radio" name="sector" value="Cement">Cement</label>
+								</div>
+								<div class="radio gap">
+									<label><input type="radio" name="sector" value="Construction">Construction</label>
+								</div>
+								<div class="radio gap">
+									<label><input type="radio" name="sector" value="Fleet">Fleet</label>
+								</div>
 							</div>
-							<div class="radio">
-								<label><input type="radio" name="sector" value="Cement">Cement</label>
+							<div class="col-sm-3">
+								<div class="radio gap">
+									<label><input type="radio" name="sector" value="General Manufacture">General Manufacture</label>
+								</div>
+								<div class="radio gap">
+									<label><input type="radio" name="sector" value="Mining">Mining</label>
+								</div>
+								<div class="radio gap">
+									<label><input type="radio" name="sector" value="Oil and Gas">Oil and Gas</label>
+								</div>
+								<div class="radio gap">
+									<label><input type="radio" name="sector" value="Power and Energy">Power and Energy</label>
+								</div>
 							</div>
-							<div class="radio">
-								<label><input type="radio" name="sector" value="Construction">Construction</label>
-							</div>
-							<div class="radio">
-								<label><input type="radio" name="sector" value="Fleet">Fleet</label>
+							<div class="col-sm-2">
+								<div class="radio gap">
+									<label><input type="radio" name="sector" value="Steel">Steel</label>
+								</div>
+								<div class="radio gap">
+									<label><input type="radio" name="sector" value="Wood Paper & Pulp">Wood Paper & Pulp</label>
+								</div>
+								<div class="radio gap">
+									<label><input type="radio" name="sector" id="other" value="Others">Lainnya:</label>
+									<br><input type="text" class="other form-control" name="other_sector" id="sector" disabled autocomplete="off">
+								</div>
 							</div>
 						</div>
-						<div class="col-sm-2">
-							<div class="radio">
-								<label><input type="radio" name="sector" value="General Manufacture">General Manufacture</label>
-							</div>
-							<div class="radio">
-								<label><input type="radio" name="sector" value="Mining">Mining</label>
-							</div>
-							<div class="radio">
-								<label><input type="radio" name="sector" value="Oil and Gas">Oil and Gas</label>
-							</div>
-							<div class="radio">
-								<label><input type="radio" name="sector" value="Power and Energy">Power and Energy</label>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="radio">
-								<label><input type="radio" name="sector" value="Steel">Steel</label>
-							</div>
-							<div class="radio">
-								<label><input type="radio" name="sector" value="Wood Paper & Pulp">Wood Paper & Pulp</label>
-							</div>
-							<div class="radio">
-								<label><input type="radio" name="sector" id="other" value="Others">Others</label>
-								<br><input type="text" class="other" name="other_sector" id="sector" disabled autocomplete="off">
-							</div>
-						</div>
+						<span class="help-block"><?php echo form_error('sector');?></span>
 					</div>
-					<span class="help-block"><?php echo form_error('sector');?></span>
-
 					
-					<p><b>Menurut Bapak/Ibu, manakah hal yang paling penting dalam memilih rekanan supplier? <span class="danger">*</span></b></p>
-		                <div class="radio">
-		                    <label><input type="radio" name="q1" value="Produk">Produk</label>
-		                </div>
-		                <div class="radio">
-		                    <label><input type="radio" name="q1" value="Kualitas produk">Kualitas produk</label>
-		                </div>
-		                <div class="radio">
-		                    <label><input type="radio" name="q1" value="Layanan/jasa">Layanan/jasa</label>
-		                </div>
-		                <div class="radio">
-		                    <label><input type="radio" name="q1" value="Ketersediaan produk">Ketersediaan produk</label>
-		                </div>
-		                <div class="radio">
-		                    <label><input type="radio" name="q1" value="Lainnya">Lainnya</label>
-		                    <br><input type="text" name="question1" id="question1" disabled autocomplete="off">
-		                </div>
-		            <span class="help-block"><?php echo form_error('q1');?></span>
-
 					
-					<p><b>Apakah anda akan merekomendasikan SEFAS Group ke perusahaan lain? <span class="danger">*</span></b></p>
-		            <div class="radio">
-		                <label><input type="radio" name="q6" value="Ya">Ya</label>
-		            </div>
-		            <div class="radio">
-		                <label><input type="radio" name="q6" value="Tidak">Tidak</label>
-		            </div>    
-		        	<span class="help-block"><?php echo form_error('q6');?></span>
+					<div class="components">
+						<p class="labels">Menurut Bapak/Ibu, manakah hal yang paling penting dalam memilih rekanan supplier? <span class="danger">*</span></p>
+							<div class="radio gap">
+								<label><input type="radio" name="q1" value="Produk">Produk</label>
+							</div>
+							<div class="radio gap">
+								<label><input type="radio" name="q1" value="Kualitas produk">Kualitas produk</label>
+							</div>
+							<div class="radio gap">
+								<label><input type="radio" name="q1" value="Layanan/jasa">Layanan/jasa</label>
+							</div>
+							<div class="radio gap">
+								<label><input type="radio" name="q1" value="Ketersediaan produk">Ketersediaan produk</label>
+							</div>
+							<div class="radio gap">
+								<label><input type="radio" name="q1" value="Lainnya">Lainnya</label>
+								<span><input type="text" class="col-sm-12 form-control" name="question1" id="question1" disabled autocomplete="off"></spam>
+							</div>
+						<span class="help-block"><?php echo form_error('q1');?></span>
+					</div>
 
-					<p><b>Bagaimana tanggapan Anda terhadap pelayanan yang diberikan oleh tim sales SEFAS Group?</b></p>
-					<p><small>(<b>5 = Sangat Baik</b>; <b>4 = Baik</b>; <b>3 = Cukup</b>; <b>2 = Tidak Baik</b>; <b>1 = Sangat Tidak Baik</b>)</small></p>
-					<table>
-						<tr>
-							<td></td>
-							<td></td>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-						</tr>
-						<tr>
-							<td>a.</td>
-							<td>Kecepatan tim sales dalam memberikan respon</td>
-							<td><input type="radio" name="q41" value="Sangat Tidak Baik"></td>
-							<td><input type="radio" name="q41" value="Tidak Baik"></td>
-							<td><input type="radio" name="q41" value="Cukup"></td>
-							<td><input type="radio" name="q41" value="Baik"></td>
-							<td><input type="radio" name="q41" value="Sangat Baik"></td>
-						</tr>
-						<span class="help-block"><?php echo form_error('q41');?></span>
-						<tr>
-							<td>b.</td>
-							<td>Pengetahuan tim sales akan produk dan layanan SEFAS</td>
-							<td><input type="radio" name="q42" value="Sangat Tidak Baik"></td>
-							<td><input type="radio" name="q42" value="Tidak Baik"></td>
-							<td><input type="radio" name="q42" value="Cukup"></td>
-							<td><input type="radio" name="q42" value="Baik"></td>
-							<td><input type="radio" name="q42" value="Sangat Baik"></td>
-						</tr>
-						<span class="help-block"><?php echo form_error('q42');?></span>
-						<tr>
-							<td>c.</td>
-							<td>Memberikan solusi atas pertanyaan pelanggan</td>
-							<td><input type="radio" name="q43" value="Sangat Tidak Baik"></td>
-							<td><input type="radio" name="q43" value="Tidak Baik"></td>
-							<td><input type="radio" name="q43" value="Cukup"></td>
-							<td><input type="radio" name="q43" value="Baik"></td>
-							<td><input type="radio" name="q43" value="Sangat Baik"></td>
-						</tr>
-						<span class="help-block"><?php echo form_error('q43');?></span>
-						<tr>
-							<td>d.</td>
-							<td>Penyampaian informasi terkait aktivitas marketing dan promo</td>
-							<td><input type="radio" name="q44" value="Sangat Tidak Baik"></td>
-							<td><input type="radio" name="q44" value="Tidak Baik"></td>
-							<td><input type="radio" name="q44" value="Cukup"></td>
-							<td><input type="radio" name="q44" value="Baik"></td>
-							<td><input type="radio" name="q44" value="Sangat Baik"></td>
-						</tr>
-						<span class="help-block"><?php echo form_error('q44');?></span>
-					</table>
+					<div class="components">
+						<p class="labels">Apakah anda akan merekomendasikan SEFAS Group ke perusahaan lain? <span class="danger">*</span></p>
+						<div class="radio">
+							<label><input type="radio" name="q6" value="Ya">Ya</label>
+						</div>
+						<div class="radio">
+							<label><input type="radio" name="q6" value="Tidak">Tidak</label>
+						</div>    
+						<span class="help-block"><?php echo form_error('q6');?></span>
+					</div>
+					
+					<div class="components">
+						<p class="labels">Bagaimana tanggapan Anda terhadap pelayanan yang diberikan oleh tim sales SEFAS Group?</b></p>
+						<p class="labels-small">(5 = Sangat Baik; 4 = Baik; 3 = Cukup; 2 = Tidak Baik; 1 = Sangat Tidak Baik)</p>
+						<table class="table-radio">
+							<tr>
+								<td></td>
+								<td>5</td>
+								<td>4</td>
+								<td>3</td>
+								<td>2</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>a. Kecepatan tim sales dalam memberikan respon</td>
+								<td><input type="radio" name="q41" value="Sangat Baik"></td>
+								<td><input type="radio" name="q41" value="Baik"></td>
+								<td><input type="radio" name="q41" value="Cukup"></td>
+								<td><input type="radio" name="q41" value="Tidak Baik"></td>
+								<td><input type="radio" name="q41" value="Sangat Tidak Baik"></td>
+							</tr>
+							<span class="help-block"><?php echo form_error('q41');?></span>
+							<tr>
+								<td>b. Pengetahuan tim sales akan produk dan layanan SEFAS</td>
+								<td><input type="radio" name="q42" value="Sangat Baik"></td>
+								<td><input type="radio" name="q42" value="Baik"></td>
+								<td><input type="radio" name="q42" value="Cukup"></td>
+								<td><input type="radio" name="q42" value="Tidak Baik"></td>
+								<td><input type="radio" name="q42" value="Sangat Tidak Baik"></td>
+							</tr>
+							<span class="help-block"><?php echo form_error('q42');?></span>
+							<tr>
+								<td>c. Memberikan solusi atas pertanyaan pelanggan</td>
+								<td><input type="radio" name="q43" value="Sangat Baik"></td>
+								<td><input type="radio" name="q43" value="Baik"></td>
+								<td><input type="radio" name="q43" value="Cukup"></td>
+								<td><input type="radio" name="q43" value="Tidak Baik"></td>
+								<td><input type="radio" name="q43" value="Sangat Tidak Baik"></td>
+							</tr>
+							<span class="help-block"><?php echo form_error('q43');?></span>
+							<tr>
+								<td>d. Penyampaian informasi terkait aktivitas marketing dan promo</td>
+								<td><input type="radio" name="q44" value="Sangat Baik"></td>
+								<td><input type="radio" name="q44" value="Baik"></td>
+								<td><input type="radio" name="q44" value="Cukup"></td>
+								<td><input type="radio" name="q44" value="Tidak Baik"></td>
+								<td><input type="radio" name="q44" value="Sangat Tidak Baik"></td>
+							</tr>
+							<span class="help-block"><?php echo form_error('q44');?></span>
+						</table>
+					</div>
 
-					<div class="form-group form-group-sm">
-						<label for="pesan_saran" class="col-sm-12">Pesan/Saran</label>
-						<div class="col-sm-12">
-						<input type="text" class="form-control" name="pesan_saran" autocomplete="off">
+					<div class="components">
+						<div class="form-group form-group-sm">
+							<label for="pesan_saran" class="col-sm-12 labels">Pesan/Saran</label>
+							<div class="col-sm-12">
+							<input type="text" class="form-control" name="pesan_saran" autocomplete="off">
+							</div>
 						</div>
 					</div>
 
 					<div class="pull-left">
-						<button id="submit-btn" type="submit" class="btn btn-sefas"><strong>Submit</strong></button>
-						<button type="button" name="previous" class="previous btn" value="Previous"><strong>Back</strong></button>
+						<button id="submit-btn" type="submit" class="btns btn-sefas">Submit</button>
+						<button type="button" name="previous" class="previous btns btn-sefas-cancel" value="Previous">Cancel</button>
               		</div>
 				</fieldset>
 				<!-- END FORM PROCUREMENT -->
@@ -932,21 +929,19 @@ swal({
 </script>
 <?php } ?>
 <script type="text/javascript">
-	
-    // continous form
-    $(document).ready(function () {
+$(document).ready(function () {
+		// continous form
       // -- Form Validation
       $('#surveyForm').validate({
         rules: {
 			jabatan: {
 				required: true,
 			},
-			email: {
-				customEmail: true
-			},
         },
         messages: {
-
+			jabatan: {
+            	required: "Silakan pilih salah satu jabatan.",
+        	},
         },
         errorPlacement: function (error, element) {
           error.text('*' + error.text());
@@ -980,10 +975,9 @@ swal({
       }
       // -- End of Custom Form Validation
 
-
-      var current_fs, next_fs, previous_fs; //fieldsets
-      var opacity;
-      var current = 1;
+		var current_fs, next_fs, previous_fs; //fieldsets
+		var opacity;
+		var current = 1;
 
 		// Tombol next
 		$(".next").click(function () {
@@ -1054,9 +1048,6 @@ swal({
 			alert("Form berhasil dikirim!");
 			return false;
 		});
-
-
-    });
     // end of continous form
 
     $("input[name='sector']").change(function(){
@@ -1087,4 +1078,15 @@ swal({
         $("#question3").attr("disabled",true);
       }
     });
+
+	//select jabatan
+	$('input[name="jabatan"]').on('change', function() {
+        if ($('input[name="jabatan"]:checked').length > 0) {
+        	$('.btns.next').removeAttr('disabled').addClass('btn-sefas');
+    	} else {
+        	$('.btns.next').attr('disabled', 'disabled').removeClass('btn-sefas');
+        }
+    });
+	
+});
 </script>

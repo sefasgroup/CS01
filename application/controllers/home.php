@@ -719,7 +719,7 @@ class Home extends CI_Controller {
         $id = $this->uri->segment(3);
         $cek = $this->home_model->cek_customer($id);  
         
-        if($cek->customer_ns_uniqueid == $id && $id != ''){
+        if(!empty($cek->customer_ns_uniqueid) == $id && $id != ''){
             //$this->form_validation->set_rules('email', 'Email Address', 'trim|required|valid_email|xss_clean|is_unique[db_surveys.survey_email]');
             $this->form_validation->set_rules('email', 'Email', '');
             $this->form_validation->set_rules('name', 'Name', 'required');
