@@ -69,7 +69,7 @@
   			<div class="box-body">
 				
 				<!-- FORM START -->
-			  	<fieldset id="fieldset-home">
+			  	<fieldset id="fieldset-home"  style="display: none;">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="box box-sefas">
@@ -118,7 +118,7 @@
 				<!-- END FORM START -->
 
 				<!-- FORM PROCUREMENT -->
-				<fieldset id="fieldset-procurement" style="display: none;">
+				<fieldset id="fieldset-procurement">
 					<p class="jabatan">PROCUREMENT</p>
 
 					<div class="form-group form-group-sm">
@@ -294,178 +294,180 @@
 				<!-- END FORM PROCUREMENT -->
 				
 				<!-- FORM TECHNICAL -->
-				<fieldset id="fieldset-technical" style="display: none;">
-					<h1>Technical</h1>
+				<fieldset id="fieldset-technical">
+					<p class="jabatan">TECHNICAL</p>
 
 					<div class="form-group form-group-sm">
-						<label for="name_technical" class="col-sm-12">Nama Lengkap <span class="danger">*</span></label>
+						<label for="name_technical" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
 						<div class="col-sm-12">
 						<input type="text" class="form-control" name="name_technical" autocomplete="off">
 						</div>
+						<span class="help-block"><?php echo form_error('name_technical');?></span>
 					</div>
-					<span class="help-block"><?php echo form_error('name_technical');?></span>
 
 					<div class="form-group form-group-sm">
-						<label for="email_technical" class="col-sm-12">Email <span class="danger">*</span></label>
+						<label for="email_technical" class="col-sm-12 labels">Email <span class="danger">*</span></label>
 						<div class="col-sm-12">
 							<input type="email" class="form-control" name="email_technical" autocomplete="off">
 						</div>
+						<span class="help-block"><?php echo form_error('email_technical');?></span>
 					</div>
-					<span class="help-block"><?php echo form_error('email_technical');?></span>
 
 					<div class="form-group form-group-sm">
-					<label for="phone_technical" class="col-sm-12">No. Telpon <span class="danger">*</span></label>
+					<label for="phone_technical" class="col-sm-12 labels">No. Telpon <span class="danger">*</span></label>
 						<div class="col-sm-12">
 						<input type="text" class="form-control" name="phone_technical" autocomplete="off">
 						</div>
+						<span class="help-block"><?php echo form_error('phone_technical');?></span>
 					</div>
-					<span class="help-block"><?php echo form_error('phone_technical');?></span>
 
 					
-					<p><b>Produk apa yang saat ini digunakan</b></p>
-					<div class="row">
-						<div class="col-sm-2">
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Alexia">
-								Alexia
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Air Tool">
-								Air Tool
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Argina">
-								Argina
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Corena">
-								Corena
-								</label>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Diala">
-								Diala
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Gadinia">
-								Gadinia
-								</label>
-							</div>
-
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Gadus">
-								Gadus
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Heat Transfer">
-								Heat Transfer
-								</label>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Melina">
-								Melina
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Morlina">
-								Morlina
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Mysella">
-								Mysella
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Omala">
-								Omala
-								</label>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Refrigeration">
-								Refrigeration
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Rimula">
-								Rimula
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Spirax">
-								Spirax
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Tegula">
-								Tegula
-								</label>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Tellus">
-								Tellus
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Tonna">
-								Tonna
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Turbo">
-								Turbo
-								</label>
-							</div>
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Coolant">
-								Coolant
-								</label>
-							</div>
+					<div class="components">
+						<p class="labels">Produk apa yang saat ini digunakan <span class="danger">*</span></p>
+						<div class="row  checkbox-container">
+							<div class="col-sm-2">
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Alexia">
+									Alexia
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Air Tool">
+									Air Tool
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Argina">
+									Argina
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Corena">
+									Corena
+									</label>
+								</div>
 							</div>
 							<div class="col-sm-2">
-							<div class="checkbox">
-								<label>
-								<input type="checkbox" name="product[]" value="Degreaser">
-								Degreaser
-								</label>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Diala">
+									Diala
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Gadinia">
+									Gadinia
+									</label>
+								</div>
+
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Gadus">
+									Gadus
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Heat Transfer">
+									Heat Transfer
+									</label>
+								</div>
 							</div>
+							<div class="col-sm-2">
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Melina">
+									Melina
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Morlina">
+									Morlina
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Mysella">
+									Mysella
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Omala">
+									Omala
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Refrigeration">
+									Refrigeration
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Rimula">
+									Rimula
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Spirax">
+									Spirax
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Tegula">
+									Tegula
+									</label>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Tellus">
+									Tellus
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Tonna">
+									Tonna
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Turbo">
+									Turbo
+									</label>
+								</div>
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Coolant">
+									Coolant
+									</label>
+								</div>
+								</div>
+								<div class="col-sm-2">
+								<div class="checkbox gap">
+									<label>
+									<input type="checkbox" name="product[]" value="Degreaser">
+									Degreaser
+									</label>
+								</div>
+							</div>
+							<span class="help-block"><?php echo form_error('product');?></span>
 						</div>
 					</div>
-					<span class="help-block"><?php echo form_error('product');?></span>
-
+					
 					<p><b>Bagaimana tanggapan Anda mengenai kualitas tim teknikal SEFAS Group?</b></p>
 					<p><small>(<b>5 = Sangat Baik</b>; <b>4 = Baik</b>; <b>3 = Cukup</b>; <b>2 = Tidak Baik</b>; <b>1 = Sangat Tidak Baik</b>)</small></p>
 					<table>

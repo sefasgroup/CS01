@@ -188,12 +188,12 @@
         outline: 1px solid #888 !important;  
     }
 
-    .body .form .box-body .form-group {
+    .form-group {
         margin-bottom: 24px;
     }
 
     /* Optional: Memberikan jarak antar radio button */
-    .body .form .box-body .radio.gap {
+    .radio.gap {
         margin-bottom: 20px; /* Jarak antar radio button */
     }
 
@@ -207,6 +207,15 @@
         padding: 4px 8px; /* Sesuaikan padding */
         border: 1px solid #ccc; /* Beri border yang jelas */
         border-radius: 4px;
+    }
+    
+    .checkbox.gap {
+        margin-bottom: 24px; /* Jarak antar checkbox button */
+    }
+    
+    .checkbox.gap span {
+        display: inline-block; /* Agar input tetap dalam alur */
+        width: 100%; /* Input menyesuaikan lebar */
     }
 
     .jabatan{
