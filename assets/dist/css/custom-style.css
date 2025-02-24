@@ -1,5 +1,9 @@
+    body{
+        font-family: "Roboto";
+        background: #D2D6DE;
+    }
+
     .sosmed {
-        font-family: Roboto;
         position: relative;
         left: 0px;
         top: 0px;
@@ -16,22 +20,11 @@
         padding-left: 40px;
     }
 
-    @media (max-width: 768px) {
-        .sosmed {
-            margin-bottom: 40px;
-        }
-
-        .sosmed span {
-            padding-left: 0px;
-        }
-    }
-
     .sosmed a:link, a:visited, a:active {
         color: #fff;	
     }
 
-    .body {
-        font-family: Roboto;
+    .containers {
         background: #fff;
         width: 90%;
         position: relative;
@@ -95,9 +88,6 @@
         background-color: #F36C21;
         color: #fff;
     }
-    .other {
-        margin-left: 20px;
-    }
     
     .box.box-sefas{
         border-top:8px solid #F36C21;
@@ -129,8 +119,8 @@
     .box.box-sefas > .box-body p{
         color: #888;
         font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
+        /* font-style: normal; */
+        /* font-weight: 400; */
         line-height: 20px
     }
 
@@ -200,15 +190,31 @@
     .radio.gap span {
         display: inline-block; /* Agar input tetap dalam alur */
         width: 100%; /* Input menyesuaikan lebar */
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 20px;
     }
     
     .radio.gap input[type="text"] {
         margin: 0; /* Hapus margin bawaan */
         padding: 4px 8px; /* Sesuaikan padding */
-        border: 1px solid #ccc; /* Beri border yang jelas */
+        border: 1px solid #ccc;
         border-radius: 4px;
+        margin-left: 20px;
+        margin-right: 40px;
+        width: 90%;
     }
-    
+
+    /* Tambahkan jarak antar col-md-2 */
+    .col-sm-1.custom-gap {
+        margin-right: 80px;
+    }
+
+    /* Hilangkan margin kanan pada kolom terakhir di setiap baris */
+    .row .col-sm-1.custom-gap:last-child {
+        margin-right: 0;
+    }
+
     .checkbox.gap {
         margin-bottom: 24px; /* Jarak antar checkbox button */
     }
@@ -235,7 +241,7 @@
         font-family: Roboto;
         font-size: 16px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 600;
         line-height: 24px; /* 150% */
     }
     
@@ -277,5 +283,19 @@
         vertical-align: middle;
     }
     
+
+    @media (max-width: 768px) {
+        .sosmed {
+            margin-bottom: 40px;
+        }
+
+        .sosmed span {
+            padding-left: 0px;
+        }
+        
+        .table-radio td:first-child {
+            padding-right: 60px;
+        }
+    }
     
     

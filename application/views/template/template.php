@@ -28,9 +28,9 @@
 <script src="<?php echo base_url("assets/dist/js/adminlte.min.js") ?>"></script>
 <script src="<?php echo base_url("assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js") ?>"></script>
 <script src="<?php echo base_url("assets/bower_components/jquery-knob/js/jquery.knob.js") ?>"></script>
-<!-- Google Font -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<!-- Google Font --><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <script src="<?php echo base_url("assets/dist/js/sweetalert.min.js") ?>"></script>
 		
 </head>
