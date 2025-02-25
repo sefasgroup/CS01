@@ -62,7 +62,6 @@
 	</div>
   	<div class="containers">
   		<!-- <form name="form-validate" id="surveyForm" enctype="multipart/form-data" class="form-horizontal" method="post" action="<?php echo site_url(); ?>home/survey/<?php echo $id;?>"> -->
-  		<form class="" id="surveyForm">
   		<div class="header">
   		<img src="<?php echo base_url(); ?>/assets/photo/header.png">
   		</div>
@@ -70,7 +69,8 @@
   			<div class="box-body">
 				
 				<!-- FORM START -->
-			  	<fieldset id="fieldset-home">
+				<form class="form-horizontal" id="surveyForm">
+				<fieldset id="fieldset-home">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="box box-sefas">
@@ -96,18 +96,58 @@
 					<div class="row">
 						<div class="col-md-6">
 							<p class="labels">Jabatan <span class="danger">*</span></p>
-							<div class="radio gap">
+
+							<?php if($existing != ''){ ?>
+							
+								<?php if($existing->name_procurement == '' && $existing->name_all == ''){ ?>
+								<div class="radio gap">
 								<label><input type="radio" name="jabatan" value="procurement">Procurement</label>
-							</div>
-							<div class="radio gap">
-								<label><input type="radio" name="jabatan" value="technical">Technical</label>
-							</div>
-							<div class="radio gap">
-								<label><input type="radio" name="jabatan" value="supply-chain">Supply Chain</label>
-							</div>
-							<div class="radio gap">
-								<label><input type="radio" name="jabatan" value="all">All</label>
-							</div>
+								</div>
+								<?php }else{ ?>
+								<p class="labels-complete"><i class="fa fa-check-circle" style="color:green;margin-right:5px"></i> Procurement - Sudah diisi</p>
+								<?php } ?>
+
+								<?php if($existing->name_technical == '' && $existing->name_all == ''){ ?>
+								<div class="radio gap">
+									<label><input type="radio" name="jabatan" value="technical">Technical</label>
+								</div>
+								<?php }else{ ?>
+								<p class="labels-complete"><i class="fa fa-check-circle" style="color:green;margin-right:5px"></i> Technical - Sudah diisi</p>
+								<?php } ?>
+
+								<?php if($existing->name_supply_chain == '' && $existing->name_all == ''){ ?>
+								<div class="radio gap">
+									<label><input type="radio" name="jabatan" value="supply-chain">Supply Chain</label>
+								</div>
+								<?php }else{ ?>
+								<p class="labels-complete"><i class="fa fa-check-circle" style="color:green;margin-right:5px"></i> Supply Chain - Sudah diisi</p>
+								<?php } ?>
+
+								<?php if($existing->name_procurement == '' || $existing->name_technical == '' || $existing->name_supply_chain == '' || $existing->name_all == ''){ ?>
+								<div class="radio gap">
+									<label><input type="radio" name="jabatan" value="all">All</label>
+								</div>
+								<?php }else{ ?>
+								<p class="labels-complete"><i class="fa fa-check-circle" style="color:green;margin-right:5px"></i> All - Sudah diisi</p>
+								<?php } ?>
+
+							<?php }else{ ?>
+								
+								<div class="radio gap">
+								<label><input type="radio" name="jabatan" value="procurement">Procurement</label>
+								</div>
+								<div class="radio gap">
+									<label><input type="radio" name="jabatan" value="technical">Technical</label>
+								</div>
+								<div class="radio gap">
+									<label><input type="radio" name="jabatan" value="supply-chain">Supply Chain</label>
+								</div>
+								<div class="radio gap">
+									<label><input type="radio" name="jabatan" value="all">All</label>
+								</div>
+
+							<?php } ?>
+
 						</div>
 						<span class="help-block"><?php echo form_error('jabatan');?></span>
 					</div>
@@ -116,11 +156,15 @@
 						<button type="button" name="next" class="btns next pull-left" disabled>Next</button>
 					</div>
 				</fieldset>
+				</form>
 				<!-- END FORM START -->
 
 				<!-- FORM PROCUREMENT -->
+				<form class="form-horizontal" id="surveyFormProcurement">
 				<fieldset id="fieldset-procurement" style="display: none;">
 					<p class="jabatan">PROCUREMENT</p>
+					
+					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_uniqueid; ?>">
 
 					<div class="form-group form-group-sm">
 						<label for="name_procurement" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
@@ -133,7 +177,7 @@
 					<div class="form-group form-group-sm">
 			            <label for="email_procurement" class="col-sm-12 labels">Email <span class="danger">*</span></label>
 			              <div class="col-sm-12">
-			                <input type="email" class="form-control" name="email_procurement" autocomplete="off">
+			                <input type="email" class="form-control" name="email_procurement" autocomplete="off" required>
 			              </div>
 						  <span class="help-block"><?php echo form_error('email_procurement');?></span>
 			        </div>
@@ -141,11 +185,10 @@
 					<div class="form-group form-group-sm">
 					<label for="phone_procurement" class="col-sm-12 labels">No. Telpon <span class="danger">*</span></label>
 						<div class="col-sm-12">
-						<input type="text" class="form-control" name="phone_procurement" autocomplete="off">
+						<input type="text" class="form-control" name="phone_procurement" autocomplete="off" required>
 						</div>
 						<span class="help-block"><?php echo form_error('phone_procurement');?></span>
 					</div>
-					
 
 					<div class="components">
 						<p class="labels">Perusahaan Bapak/Ibu bergerak di sektor <span class="danger">*</span></p>
@@ -193,7 +236,6 @@
 							<span class="help-block"><?php echo form_error('sector');?></span>
 						</div>
 					</div>
-					
 					
 					<div class="components">
 						<p class="labels">Menurut Bapak/Ibu, manakah hal yang paling penting dalam memilih rekanan supplier? <span class="danger">*</span></p>
@@ -246,8 +288,8 @@
 								<td><input type="radio" name="q41" value="Cukup"></td>
 								<td><input type="radio" name="q41" value="Tidak Baik"></td>
 								<td><input type="radio" name="q41" value="Sangat Tidak Baik"></td>
+								<span class="help-block"><?php echo form_error('q41');?></span>
 							</tr>
-							<span class="help-block"><?php echo form_error('q41');?></span>
 							<tr>
 								<td>b. Pengetahuan tim sales akan produk dan layanan SEFAS</td>
 								<td><input type="radio" name="q42" value="Sangat Baik"></td>
@@ -255,8 +297,8 @@
 								<td><input type="radio" name="q42" value="Cukup"></td>
 								<td><input type="radio" name="q42" value="Tidak Baik"></td>
 								<td><input type="radio" name="q42" value="Sangat Tidak Baik"></td>
+								<span class="help-block"><?php echo form_error('q42');?></span>
 							</tr>
-							<span class="help-block"><?php echo form_error('q42');?></span>
 							<tr>
 								<td>c. Memberikan solusi atas pertanyaan pelanggan</td>
 								<td><input type="radio" name="q43" value="Sangat Baik"></td>
@@ -264,8 +306,8 @@
 								<td><input type="radio" name="q43" value="Cukup"></td>
 								<td><input type="radio" name="q43" value="Tidak Baik"></td>
 								<td><input type="radio" name="q43" value="Sangat Tidak Baik"></td>
+								<span class="help-block"><?php echo form_error('q43');?></span>
 							</tr>
-							<span class="help-block"><?php echo form_error('q43');?></span>
 							<tr>
 								<td>d. Penyampaian informasi terkait aktivitas marketing dan promo</td>
 								<td><input type="radio" name="q44" value="Sangat Baik"></td>
@@ -273,8 +315,8 @@
 								<td><input type="radio" name="q44" value="Cukup"></td>
 								<td><input type="radio" name="q44" value="Tidak Baik"></td>
 								<td><input type="radio" name="q44" value="Sangat Tidak Baik"></td>
+								<span class="help-block"><?php echo form_error('q44');?></span>
 							</tr>
-							<span class="help-block"><?php echo form_error('q44');?></span>
 						</table>
 					</div>
 
@@ -282,26 +324,28 @@
 						<div class="form-group form-group-sm">
 							<label for="pesan_saran" class="col-sm-12 labels">Pesan/Saran</label>
 							<div class="col-sm-12">
-							<input type="text" class="form-control" name="pesan_saran" autocomplete="off">
+							<input type="text" class="form-control" name="pesan_saran_procurement" autocomplete="off">
 							</div>
 						</div>
 					</div>
 
 					<div class="pull-left">
-						<button id="submit-btn" type="submit" class="btns btn-sefas">Submit</button>
+						<button type="submit" class="btns btn-sefas">Submit</button>
 						<button type="button" name="previous" class="previous btns btn-sefas-cancel" value="Previous">Cancel</button>
               		</div>
 				</fieldset>
+				</form>
 				<!-- END FORM PROCUREMENT -->
 				
 				<!-- FORM TECHNICAL -->
+				<form class="form-horizontal" id="surveyTechnical">
 				<fieldset id="fieldset-technical" style="display: none;">
 					<p class="jabatan">TECHNICAL</p>
 
 					<div class="form-group form-group-sm">
 						<label for="name_technical" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
 						<div class="col-sm-12">
-						<input type="text" class="form-control" name="name_technical" autocomplete="off">
+						<input type="text" class="form-control" name="name_technical" autocomplete="off" required>
 						</div>
 						<span class="help-block"><?php echo form_error('name_technical');?></span>
 					</div>
@@ -309,7 +353,7 @@
 					<div class="form-group form-group-sm">
 						<label for="email_technical" class="col-sm-12 labels">Email <span class="danger">*</span></label>
 						<div class="col-sm-12">
-							<input type="email" class="form-control" name="email_technical" autocomplete="off">
+							<input type="email" class="form-control" name="email_technical" autocomplete="off" required>
 						</div>
 						<span class="help-block"><?php echo form_error('email_technical');?></span>
 					</div>
@@ -317,7 +361,7 @@
 					<div class="form-group form-group-sm">
 					<label for="phone_technical" class="col-sm-12 labels">No. Telpon <span class="danger">*</span></label>
 						<div class="col-sm-12">
-						<input type="text" class="form-control" name="phone_technical" autocomplete="off">
+						<input type="text" class="form-control" name="phone_technical" autocomplete="off" required>
 						</div>
 						<span class="help-block"><?php echo form_error('phone_technical');?></span>
 					</div>
@@ -507,10 +551,11 @@
 					</div>
 
 					<div class="pull-left">
-						<button id="submit-btn" type="submit" class="btns btn-sefas"><strong>Submit</strong></button>
+						<button  type="submit" class="btns btn-sefas"><strong>Submit</strong></button>
 						<button type="button" name="previous" class="previous btns btn-sefas-cancel" value="Previous"><strong>Cancel</strong></button>
               		</div>
 				</fieldset>
+				</form>
 				<!-- END FORM TECHNICAL -->
 				
 				<!-- FORM SUPPLY CHAIN -->
@@ -576,7 +621,7 @@
 					</div>
 
 					<div class="pull-left">
-						<button id="submit-btn" type="submit" class="btns btn-sefas">Submit</button>
+						<button  type="submit" class="btns btn-sefas">Submit</button>
 						<button type="button" name="previous" class="previous btns btn-sefas-cancel" value="Previous">Cancel</button>
               		</div>
 				</fieldset>
@@ -890,7 +935,7 @@
 					</div>
 
 					<div class="pull-left">
-						<button id="submit-btn" type="submit" class="btns btn-sefas">Submit</button>
+						<button  type="submit" class="btns btn-sefas">Submit</button>
 						<button type="button" name="previous" class="previous btns btn-sefas-cancel" value="Previous">Cancel</button>
               		</div>
 				</fieldset>
@@ -899,7 +944,6 @@
 		    </div>
 		    <br>
   		</div>
-  		</form>
   	</div>
 	<div class="footer">
   		Powered by: <b><a href="http://www.sefasgroup.com">SEFAS Group</a></b> 2025
@@ -931,51 +975,7 @@ swal({
 <?php } ?>
 <script type="text/javascript">
 $(document).ready(function () {
-		// continous form
-      // -- Form Validation
-      $('#surveyForm').validate({
-        rules: {
-			jabatan: {
-				required: true,
-			},
-        },
-        messages: {
-			jabatan: {
-            	required: "Silakan pilih salah satu jabatan.",
-        	},
-        },
-        errorPlacement: function (error, element) {
-          error.text('*' + error.text());
-          error.css({
-            color: 'red'
-          });
-          if (element.attr('name') === 'files[]') {
-            error.appendTo(element.parent().parent());
-          } else {
-            error.appendTo(element.parent());
-          }
-        }
-      });
-
-      // -- Custom Form Validation
-      // Validate email format
-      $.validator.addMethod('customEmail', function (value, element) {
-        if (!this.optional(element) && !filter_var(value)) {
-          return false;
-        }
-        // Check for invalid gmail format
-        if (value.includes('@gm') && !/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(value)) {
-          return false;
-        }
-        return true;
-      }, 'Email not valid');
-
-      function filter_var(value) {
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailPattern.test(value);
-      }
-      // -- End of Custom Form Validation
-
+	// continous form
 		var current_fs, next_fs, previous_fs; //fieldsets
 		var opacity;
 		var current = 1;
@@ -1051,6 +1051,69 @@ $(document).ready(function () {
 		});
     // end of continous form
 
+	
+	// -- Form Validation
+	$('#surveyFormProcurement').validate({
+		rules: {
+			email_procurement: {
+				customEmail: true
+			},
+			sector: {
+				required: true
+			},
+			q1: {
+				required: true
+			},
+			q6: {
+				required: true
+			},
+			q41: {
+				required: true
+			},
+			q42: {
+				required: true
+			},
+			q43: {
+				required: true
+			},
+			q44: {
+				required: true
+			},
+		},
+		messages: {
+		},
+		errorPlacement: function (error, element) {
+			error.text('*' + error.text());
+			error.css({ color: 'red' });
+			
+			var helpBlock = element.closest('.components').find('.help-block');
+			if (helpBlock.length) {
+				helpBlock.html(error);
+			} else {
+				error.appendTo(element.parent()); // Default jika .help-block tidak ditemukan
+			}
+		}
+	});
+
+	// -- Custom Form Validation
+	// Validate email format
+	$.validator.addMethod('customEmail', function (value, element) {
+	if (!this.optional(element) && !filter_var(value)) {
+		return false;
+	}
+	// Check for invalid gmail format
+	if (value.includes('@gm') && !/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(value)) {
+		return false;
+	}
+	return true;
+	}, 'Email not valid');
+
+	function filter_var(value) {
+	const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	return emailPattern.test(value);
+	}
+	// -- End of Custom Form Validation
+
     $("input[name='sector']").change(function(){
       if($(this).val()=='Others'){
         $("#sector").removeAttr("disabled",true);
@@ -1089,13 +1152,13 @@ $(document).ready(function () {
         }
     });
 
-	//FORM SUBMIT
-	$("#surveyForm").submit(function (e) {
+	//FORM SUBMIT PROCUREMENT
+	$("#surveyFormProcurement").submit(function (e) {
       e.preventDefault();
-
+	  
       $.ajax({
         type: "POST",
-        url: "<?php echo site_url('home/survey_submit') ?>",
+        url: "<?php echo site_url('home/survey_submit_procurement') ?>",
         dataType: "JSON",
         data: new FormData(this),
         processData: false,
@@ -1104,7 +1167,10 @@ $(document).ready(function () {
         async: false,
         success: function (data) {
          alert("success");
-        }
+        },
+		error: function (request, status, error) {
+			alert(request.responseText);
+		}
       });
     });
 	

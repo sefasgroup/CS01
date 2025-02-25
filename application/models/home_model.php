@@ -1707,7 +1707,8 @@
                   $this->db->where('ns_id',$id);
                   $this->db->where('quartal',$quartal);
                   $this->db->where('year',$year);
-                  return $this->db->get();
+                  $result = $this->db->get();
+                  return $result->row();
             }
             
             function cek_quartal($date)
@@ -1732,5 +1733,6 @@
                   $result = $this->crmdb->get();
                   return $result->row();
             }
+
 
       }

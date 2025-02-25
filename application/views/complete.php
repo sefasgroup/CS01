@@ -10,172 +10,77 @@
 
     <title>CUSTOMER SURVEY</title>
 
-<!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/morris.js/morris.css">
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-<!-- Sweet Alert -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- Bootstrap 3.3.7 -->
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/css/bootstrap.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/font-awesome/css/font-awesome.min.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/Ionicons/css/ionicons.min.css">
+	<!-- Custom style -->
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/custom-style.css">
+	<!-- Google Font Roboto-->
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<!-- Sweet Alert -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
 
 
-<!-- jQuery 3 -->
-<script src="<?php echo base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="<?php echo base_url(); ?>assets/bower_components/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="<?php echo base_url(); ?>assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<!-- Slimscroll -->
-<script src="<?php echo base_url(); ?>assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="<?php echo base_url(); ?>bower_components/fastclick/lib/fastclick.js"></script>
-<!-- sweer alert -->
-<script src="<?php echo base_url("assets/dist/js/sweetalert.min.js") ?>"></script>
+	<!-- jQuery 3 -->
+	<script src="<?php echo base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- jQuery UI 1.11.4 -->
+	<script src="<?php echo base_url(); ?>assets/bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+	<script>
+	$.widget.bridge('uibutton', $.ui.button);
+	</script>
+	<!-- Bootstrap 3.3.7 -->
+	<script src="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- sweer alert -->
+	<script src="<?php echo base_url("assets/dist/js/sweetalert.min.js") ?>"></script>
+	<!-- form validate -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.js"></script>
 
-  <style type="text/css">
+</head>
 
-	.sosmed {
-	  position: fixed;
-	  left: 0px;
-	  top: 0px;
-	  width: 100%;
-	  z-index: 1;
-	  background-color: #f26522;
-	  text-align: center;
-	  color: #fff;
-	  font-size: 16px;
-	}
+  <body>
 
-	.sosmed span {
-	  padding-left: 40px;
-	}
-
-	@media (max-width: 768px) {
-	  .sosmed span {
-	    padding-left: 0px;
-	  }
-	}
-
-	.sosmed a:link, a:visited, a:active {
-	  color: #fff;	
-	}
-
-  	.body {
-  		background: #fff;
-  		width: 90%;
-  		position: absolute;
-  		top: 13%;
-  		left: 5%;
-  		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  	}
-
-  	.header {
-  		text-align: center;
-  	}
-  	.header img {
-  		width: 100%;
-  	}
-  	.form {
-  		position: relative;
-  		width: 90%;
-  		left: 5%;
-  		background-color: #fff;
-  		border-top: 1px solid #f4f4f4;
-  		padding-top: 20px;
-  		padding-bottom: 20px;
-  	}
-  	.footer {
-  		position: relative;
-  		width: 90%;
-  		left: 5%;
-  		background-color: #fff;
-  		border-top: 1px solid #f4f4f4;
-  		padding-top: 20px;
-  		padding-bottom: 20px;
-  		text-align: center;
-  		font-size: 12px;
-  	}
-  	.footer a {
-  		color: #f26522;
-  	}
-  	.footer a:hover {
-  		color: #80320d;
-  	}
-  	.button {
-  		text-align: center;
-  	}
-  	.button .bg {
-  		background-color: #f26522;
-  		color: #ffffff;
-  		font-weight: bold;
-  	}
-  	.danger {
-  		color: red;
-  	}
-
-  	table {
-  		width: 100%;
-  	}
-  	table th, td{
-  		padding:5px;
-  	}
-  	.tr {
-  		background-color: #f26522;
-  		color: #fff;
-  	}
-  	.other {
-  		margin-left: 20px;
-  	}
-
-
-  </style>
-
-  </head>
-
-  <body class="hold-transition login-page">
-
-	<div class="sosmed">Follow us: <a href="https://www.instagram.com/sefasgroup/?hl=id"><img src="<?php echo base_url(); ?>/assets/photo/ig.png" height="60px"></a> <a href="https://id.linkedin.com/company/sefas-group"><img src="<?php echo base_url(); ?>/assets/photo/linkedin.png" height="60px"></a> <span><a href="https://www.sefasgroup.com">www.sefasgroup.com</a></span>
+  	<div class="sosmed">Follow us:
+		<a href="https://www.instagram.com/sefasgroup/?hl=id">
+			<img src="<?php echo base_url(); ?>/assets/photo/ig.png" height="60px">
+		</a> 
+		<a href="https://id.linkedin.com/company/sefas-group">
+			<img src="<?php echo base_url(); ?>/assets/photo/linkedin.png" height="60px">
+		</a>
+		<a href="https://www.sefasgroup.com">
+			<img src="<?php echo base_url(); ?>/assets/dist/icon/mdi_web.svg" height="20px">
+			sefasgroup.com
+		</a>
 	</div>
 
-  	<div class="body">
-  		<form name="form-validate" enctype="multipart/form-data" class="form-horizontal" method="post" action="<?php echo site_url(); ?>/home">
+	<div class="containers">
   		<div class="header">
   		<img src="<?php echo base_url(); ?>/assets/photo/header.png">
   		</div>
   		<div class="form">
-  			<div class="box-body">
-                <div class="callout callout-success">
-                <h4>Success</h4>
-                <p>Thank you for your cooperation</p>
-                </div>
-		    </div>
-		    <br>
+		<div class="box-body">
+		<div class="row" style="padding:119px 0;margin:40px 0">
+			<div class="col-xs-12">
+				<div class="center-block text-center" style="width: 500px;">
+				<img src="<?php echo base_url('assets/photo/ceklist-success.gif'); ?>" alt="success">
+				<p>This response has been recorded!</p>
+				<p>Thank you for your cooperation</p>
+				</div>
+			</div>
+		</div>
+		</div>
   		</div>
-  		<div class="footer">
-  			Powered by: <b><a href="http://www.sefasgroup.com">SEFAS Group</a></b> 2021
-  		</div>
-  		</form>
   	</div>
-
+	<div class="footer">
+  		Powered by: <b><a href="http://www.sefasgroup.com">SEFAS Group</a></b> 2025
+  	</div>
   </body>
 </html>
 

@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo isset($breadcrumb) ? $breadcrumb : ''; ?></title>
 
-<link rel="stylesheet" href="<?php echo base_url("assets/bower_components/bootstrap/dist/css/bootstrap.min.css") ?>">
+<link rel="stylesheet" href="<?php echo base_url("assets/bower_components/bootstrap/dist/css/bootstrap.css") ?>">
 <link rel="stylesheet" href="<?php echo base_url("assets/bower_components/select2/dist/css/select2.min.css") ?>">
 <link rel="stylesheet" href="<?php echo base_url("assets/bower_components/Ionicons/css/ionicons.min.css") ?>">
 <link rel="stylesheet" href="<?php echo base_url("assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css") ?>">
