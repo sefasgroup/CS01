@@ -72,6 +72,7 @@
 				<img src="<?php echo base_url('assets/photo/ceklist-success.gif'); ?>" alt="success">
 				<p>This response has been recorded!</p>
 				<p>Thank you for your cooperation</p>
+				<div id="time" style="font-size:12px;color:#D4D4D4"></div>
 				</div>
 			</div>
 		</div>
@@ -83,56 +84,34 @@
   	</div>
   </body>
 </html>
-
-<?php if($this->session->flashdata('error')){ ?>
-<script>
-swal({
-  icon:"error",
-  title: "Error",
-  text: "Failed Submit Survey",
-  button: false,
-  timer: 5000,
-});
-</script>
-<?php } ?>
-<?php if($this->session->flashdata('success')){ ?>
-<script>
-swal({
-  icon:"success",
-  title: "Success",
-  text: "Thank you for your cooperation",
-  button: false,
-  timer: 5000,
-});
-</script>
-<?php } ?>
 <script type="text/javascript">
-    $("input[name='sector']").change(function(){
-      if($(this).val()=='Others'){
-        $("#sector").removeAttr("disabled",true);
-      }else{
-        $("#sector").attr("disabled",true);
-      }
-    });
-    $("input[name='q1']").change(function(){
-      if($(this).val()=='Lainnya'){
-        $("#question1").removeAttr("disabled",true);
-      }else{
-        $("#question1").attr("disabled",true);
-      }
-    });
-    $("input[name='q2']").change(function(){
-      if($(this).val()=='Tidak tepat waktu'){
-        $("#question2").removeAttr("disabled",true);
-      }else{
-        $("#question2").attr("disabled",true);
-      }
-    });
-    $("input[name='q3']").change(function(){
-      if($(this).val()=='Tidak sesuai'){
-        $("#question3").removeAttr("disabled",true);
-      }else{
-        $("#question3").attr("disabled",true);
-      }
-    });
+$(document).ready(function () {
+
+	function startTimer(duration, display, redirectUrl) {
+		var timer = duration, minutes, seconds;
+		var countdown = setInterval(function () {
+			minutes = parseInt(timer / 60, 10);
+			seconds = parseInt(timer % 60, 10);
+
+			minutes = minutes < 10 ? "0" + minutes : minutes;
+			seconds = seconds < 10 ? "0" + seconds : seconds;
+
+			display.textContent = minutes + ":" + seconds;
+
+			if (--timer < 0) {
+				clearInterval(countdown);
+				window.location.href = redirectUrl;
+			}
+		}, 1000);
+	}
+
+	window.onload = function () {
+		//var fiveMinutes = 60 * 5,
+		var fiveSecond = 5,
+			display = document.querySelector('#time');
+			redirectUrl = "<?php echo site_url('home/survey') ?>/<?= $this->uri->segment(3) ?>";
+			startTimer(fiveSecond, display,redirectUrl);
+	};
+
+});
 </script>

@@ -70,12 +70,45 @@
       <tr>
         <td><a href="<?php echo site_url(); ?>home/view_sk_jakarta/<?php echo $baris->survey_id; ?>"><?php echo $no;?></a></td>
         <td><?php echo date('d M Y H:i a',strtotime($baris->survey_date));?></td>
-        <td><?php echo $baris->survey_name;?></td>
+        <td>
+          <?php 
+            if($baris->survey_name != ''){
+              echo $baris->survey_name;
+            }else if($baris->name_all != ''){
+              echo $baris->name_all;
+            }else{
+              $surveyor = array_filter([$baris->name_procurement, $baris->name_technical, $baris->name_supply_chain]); 
+              echo implode(', ', $surveyor);
+            }
+          ?>
+        </td>
         <td><?php echo $baris->survey_position;?></td>
         <td><?php echo $baris->ns_id;?></td>
         <td><?php echo $baris->survey_company;?></td>
-        <td><?php echo $baris->survey_email;?></td>
-        <td><?php echo $baris->survey_phone;?></td>
+        <td>
+        <?php 
+            if($baris->survey_email != ''){
+              echo $baris->survey_email;
+            }else if($baris->email_all != ''){
+              echo $baris->email_all;
+            }else{
+              $email_surveyor = array_filter([$baris->email_procurement, $baris->email_technical, $baris->email_supply_chain]); 
+              echo implode(', ', $email_surveyor);
+            }
+        ?>
+        </td>
+        <td>
+        <?php 
+            if($baris->survey_phone != ''){
+              echo $baris->survey_phone;
+            }else if($baris->phone_all != ''){
+              echo $baris->phone_all;
+            }else{
+              $phone_surveyor = array_filter([$baris->phone_procurement, $baris->phone_technical, $baris->phone_supply_chain]); 
+              echo implode(', ', $phone_surveyor);
+            }
+        ?>
+        </td>
         <td><?php echo strtoupper($baris->quartal).' '.$baris->year;?></td>
         <td>
         <a href="<?php echo site_url() ?>home/delete_survey_sk_jakarta/<?php echo $baris->survey_id;?>" class="btn btn-xs btn-danger" onClick='return confirm("Anda yakin ingin menghapus data ini?")'><span class="glyphicon glyphicon-trash"></span></a>                   

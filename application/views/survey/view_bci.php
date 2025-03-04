@@ -12,11 +12,44 @@
 
   <div class="box-body">
     <p>Date : <b><?php echo date('d M Y H:i a',strtotime($baris->survey_date));?></b></p>
-    <p>Nama : <b><?php echo $baris->survey_name;?></b></p>
+    <p>Nama : <b>
+    <?php 
+      if($baris->survey_name != ''){
+        echo $baris->survey_name;
+      }else if($baris->name_all != ''){
+        echo $baris->name_all;
+      }else{
+        $surveyor = array_filter([$baris->name_procurement, $baris->name_technical, $baris->name_supply_chain]); 
+        echo implode(', ', $surveyor);
+      }
+    ?>
+    </b></p>
     <p>Posisi / Jabatan : <b><?php echo $baris->survey_position;?></b></p>
     <p>Perusahaan : <b><?php echo $baris->survey_company;?></b></p>
-    <p>Email : <b><?php echo $baris->survey_email;?></b></p>
-    <p>No. Telp. : <b><?php echo $baris->survey_phone;?></b></p>
+    <p>Email : <b>
+    <?php 
+            if($baris->survey_email != ''){
+              echo $baris->survey_email;
+            }else if($baris->email_all != ''){
+              echo $baris->email_all;
+            }else{
+              $email_surveyor = array_filter([$baris->email_procurement, $baris->email_technical, $baris->email_supply_chain]); 
+              echo implode(', ', $email_surveyor);
+            }
+    ?>
+    </b></p>
+    <p>No. Telp. : <b>
+    <?php 
+      if($baris->survey_phone != ''){
+        echo $baris->survey_phone;
+      }else if($baris->phone_all != ''){
+        echo $baris->phone_all;
+      }else{
+        $phone_surveyor = array_filter([$baris->phone_procurement, $baris->phone_technical, $baris->phone_supply_chain]); 
+        echo implode(', ', $phone_surveyor);
+      }
+    ?>
+    </b></p>
     <hr>
     <p>Perusahaan Bapak/Ibu bergerak di sektor : <b><?php if($baris->sector=="Lainnya"){echo $baris->other_sector;}else{echo $baris->sector;} ?></b></p>
     <p>Produk apa yang saat ini digunakan : <b><?php echo $baris->product;?></b></p>
@@ -43,8 +76,32 @@
     <hr>
     <p>Apakah anda akan merekomendasikan Blue Coolant Indonesia ke perusahaan lain? <b><?php echo $baris->q6;?></b></p>
     <hr>
-    <p>Pesan & Saran: <b><?php echo $baris->survey_note;?></b></p>
-
+    <p>Pesan & Saran All: 
+    <b>
+    <?php 
+      if($baris->survey_note != ''){
+        echo $baris->survey_note;
+      }else if($baris->pesan_saran_all != ''){
+        echo $baris->pesan_saran_all;
+      }
+    ?>
+    </b>
+    </p>
+    <p>Pesan & Saran Procurement: 
+    <b>
+    <?php echo $baris->pesan_saran_procurement;?>
+    </b>
+    </p>
+    <p>Pesan & Saran Technical: 
+    <b>
+    <?php echo $baris->pesan_saran_technical;?>
+    </b>
+    </p>
+    <p>Pesan & Saran Supply Chain: 
+    <b>
+    <?php echo $baris->pesan_saran_supply_chain;?>
+    </b>
+    </p>
   </div>
 </div>
 </div>

@@ -636,7 +636,7 @@ class Home extends CI_Controller {
         $id = $this->uri->segment(3);
 
         //$this->form_validation->set_rules('email', 'Email Address', 'trim|required|valid_email|xss_clean|is_unique[db_surveys.survey_email]');
-	//$this->form_validation->set_rules('email', 'Email Address', 'required|is_unique[db_surveys.survey_email]');
+	    //$this->form_validation->set_rules('email', 'Email Address', 'required|is_unique[db_surveys.survey_email]');
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('position', 'Position', 'required');
         $this->form_validation->set_rules('company', 'Company', 'required');
@@ -746,17 +746,39 @@ class Home extends CI_Controller {
                 
                 date_default_timezone_set('Asia/Jakarta');
                 $date = date('Y-m-d H:i:s');
+                $month = date('m');
                 $year = date('Y');
 
                 $data['data'] = $this->home_model->cek_customer($id);
                 
                 $cek_quartal = $this->home_model->cek_quartal($date)->row();
-                $existing = $this->home_model->cek_survey($id,$cek_quartal->name_periode,$year);
 
-                if($existing){
-                    $data['existing'] = $existing;
+                if($cek_quartal){
+                    $existing = $this->home_model->cek_survey($id,$cek_quartal->name_periode,$year);
+
+                    if($existing){
+                        $data['existing'] = $existing;
+                    }else{
+                        $data['existing'] = '';
+                    }
                 }else{
-                    $data['existing'] = '';
+                    if($month == '01' || $month == '02' || $month == '03'){
+                        $quartal = 'Q1';
+                    }else if($month == '04' || $month == '05' || $month == '06'){
+                        $quartal = 'Q2';
+                    }else if($month == '07' || $month == '08' || $month == '09'){
+                        $quartal = 'Q3';
+                    }else{
+                        $quartal = 'Q4';
+                    }
+                    
+                    $existing = $this->home_model->cek_survey($id,$quartal,$year);
+
+                    if($existing){
+                        $data['existing'] = $existing;
+                    }else{
+                        $data['existing'] = '';
+                    }
                 }
 
                 $this->load->view('home',$data);
@@ -854,40 +876,346 @@ class Home extends CI_Controller {
         $year = date('Y');
 
         $id = $this->input->post('id_customer');
+        $cek_customer = $this->home_model->cek_customer($id);
         $cek_quartal = $this->home_model->cek_quartal($date)->row();
-        $end_periode = $year.'-'.$cek_quartal->end_date_periode;
-        $cek = $this->home_model->cek_survey($id,$cek_quartal->name_periode,$year);
-
-        $data = array(
-            'ns_id' =>$id,
-            'survey_date' =>$date,
-            'name_procurement' => $this->input->post('name_procurement'),
-            'email_procurement' => $this->input->post('email_procurement'),
-            'phone_procurement' => $this->input->post('phone_procurement'),
-            'sector' => $this->input->post('sector'),
-            'q1' => $this->input->post('q1'),
-            'q6' => $this->input->post('q6'),
-            'q41' => $this->input->post('q41'),
-            'q42' => $this->input->post('q42'),
-            'q43' => $this->input->post('q43'),
-            'q44' => $this->input->post('q44'),
-            'pesan_saran_procurement' => $this->input->post('pesan_saran_procurement'),
-            'quartal' => $cek_quartal->name_periode,
-            'year' => $year,
-            'period_end_date' => $end_periode
-        );
         
-        $result = $this->home_model->add_survey($data);
+        if($cek_quartal){
+            $end_periode = $year.'-'.$cek_quartal->end_date_periode;
+            $cek = $this->home_model->cek_survey($id,$cek_quartal->name_periode,$year);
+            $quartal = $cek_quartal->name_periode;
+        }else{
+
+            if($month == '01' || $month == '02' || $month == '03'){
+                $quartal = 'Q1';
+            }else if($month == '04' || $month == '05' || $month == '06'){
+                $quartal = 'Q2';
+            }else if($month == '07' || $month == '08' || $month == '09'){
+                $quartal = 'Q3';
+            }else{
+                $quartal = 'Q4';
+            }
+
+            $end_periode = date("Y-m-t", strtotime($date));
+            $cek = $this->home_model->cek_survey($id,$quartal,$year);
+        }
+
+        if(count($cek) > 0){
+
+            $data = array(
+                'name_procurement' => $this->input->post('name_procurement'),
+                'email_procurement' => $this->input->post('email_procurement'),
+                'phone_procurement' => $this->input->post('phone_procurement'),
+                'sector' => $this->input->post('sector'),
+                'other_sector' =>$this->input->post('other_sector'),
+                'q1' => $this->input->post('q1'),
+                'other_q1' =>$this->input->post('question1'),
+                'q6' => $this->input->post('q6'),
+                'q41' => $this->input->post('q41'),
+                'q42' => $this->input->post('q42'),
+                'q43' => $this->input->post('q43'),
+                'q44' => $this->input->post('q44'),
+                'pesan_saran_procurement' => $this->input->post('pesan_saran_procurement')
+            );
+            
+            $result = $this->home_model->update_survey($cek->survey_id,$data);
+        }else{
+            
+            $data = array(
+                'ns_id' =>$id,
+                'survey_date' =>$date,
+                'survey_company' => $cek_customer->customer_name,
+                'name_procurement' => $this->input->post('name_procurement'),
+                'email_procurement' => $this->input->post('email_procurement'),
+                'phone_procurement' => $this->input->post('phone_procurement'),
+                'sector' => $this->input->post('sector'),
+                'other_sector' =>$this->input->post('other_sector'),
+                'q1' => $this->input->post('q1'),
+                'other_q1' =>$this->input->post('question1'),
+                'q6' => $this->input->post('q6'),
+                'q41' => $this->input->post('q41'),
+                'q42' => $this->input->post('q42'),
+                'q43' => $this->input->post('q43'),
+                'q44' => $this->input->post('q44'),
+                'pesan_saran_procurement' => $this->input->post('pesan_saran_procurement'),
+                'quartal' => $quartal,
+                'year' => $year,
+                'period_end_date' => $end_periode
+            );
+            
+            $result = $this->home_model->add_survey($data);
+        }
                         
         if(!$result)
         {
             $this->session->set_flashdata('error','Failed submit survey');
         }else{
-            $this->session->set_flashdata('success','Thank you for your cooperation');
+            $this->session->set_flashdata('success','This response has been recorded! Thank you for your cooperation');
+        }
+        
+        echo json_encode($result);
+    }
+    
+    function survey_submit_technical()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d H:i:s');
+        $month = date('m');
+        $year = date('Y');
+
+        $id = $this->input->post('id_customer');
+        $cb_product = $this->input->post('product');
+        $product = implode(", ", $cb_product);
+        $cek_customer = $this->home_model->cek_customer($id);
+        $cek_quartal = $this->home_model->cek_quartal($date)->row();
+        
+        if($cek_quartal){
+            $end_periode = $year.'-'.$cek_quartal->end_date_periode;
+            $cek = $this->home_model->cek_survey($id,$cek_quartal->name_periode,$year);
+            $quartal = $cek_quartal->name_periode;
+        }else{
+
+            if($month == '01' || $month == '02' || $month == '03'){
+                $quartal = 'Q1';
+            }else if($month == '04' || $month == '05' || $month == '06'){
+                $quartal = 'Q2';
+            }else if($month == '07' || $month == '08' || $month == '09'){
+                $quartal = 'Q3';
+            }else{
+                $quartal = 'Q4';
+            }
+
+            $end_periode = date("Y-m-t", strtotime($date));
+            $cek = $this->home_model->cek_survey($id,$quartal,$year);
         }
 
+        if(count($cek) > 0){
+
+            $data = array(
+                'name_technical' => $this->input->post('name_technical'),
+                'email_technical' => $this->input->post('email_technical'),
+                'phone_technical' => $this->input->post('phone_technical'),
+                'product' => $product,
+                'q51' => $this->input->post('q51'),
+                'q52' => $this->input->post('q52'),
+                'q53' => $this->input->post('q53'),
+                'pesan_saran_technical' => $this->input->post('pesan_saran_technical')
+            );
+            
+            $result = $this->home_model->update_survey($cek->survey_id,$data);
+
+        }else{
+            
+            $data = array(
+                'ns_id' =>$id,
+                'survey_date' =>$date,
+                'survey_company' => $cek_customer->customer_name,
+                'name_technical' => $this->input->post('name_technical'),
+                'email_technical' => $this->input->post('email_technical'),
+                'phone_technical' => $this->input->post('phone_technical'),
+                'product' => $product,
+                'q51' => $this->input->post('q51'),
+                'q52' => $this->input->post('q52'),
+                'q53' => $this->input->post('q53'),
+                'pesan_saran_technical' => $this->input->post('pesan_saran_technical'),
+                'quartal' => $quartal,
+                'year' => $year,
+                'period_end_date' => $end_periode
+            );
+            
+            $result = $this->home_model->add_survey($data);
+        }
+                        
+        if(!$result)
+        {
+            $this->session->set_flashdata('error','Failed submit survey');
+        }else{
+            $this->session->set_flashdata('success','This response has been recorded! Thank you for your cooperation');
+        }
         
-        redirect('completed','refresh');
+        echo json_encode($result);
+    }
+    
+    function survey_submit_supply_chain()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d H:i:s');
+        $month = date('m');
+        $year = date('Y');
+
+        $id = $this->input->post('id_customer');
+        $cek_customer = $this->home_model->cek_customer($id);
+        $cek_quartal = $this->home_model->cek_quartal($date)->row();
+        
+        if($cek_quartal){
+            $end_periode = $year.'-'.$cek_quartal->end_date_periode;
+            $cek = $this->home_model->cek_survey($id,$cek_quartal->name_periode,$year);
+            $quartal = $cek_quartal->name_periode;
+        }else{
+        
+            if($month == '01' || $month == '02' || $month == '03'){
+                $quartal = 'Q1';
+            }else if($month == '04' || $month == '05' || $month == '06'){
+                $quartal = 'Q2';
+            }else if($month == '07' || $month == '08' || $month == '09'){
+                $quartal = 'Q3';
+            }else{
+                $quartal = 'Q4';
+            }
+
+            $end_periode = date("Y-m-t", strtotime($date));
+            $cek = $this->home_model->cek_survey($id,$quartal,$year);
+        }
+
+        if(count($cek) > 0){
+
+            $data = array(
+                'name_supply_chain' => $this->input->post('name_supply_chain'),
+                'email_supply_chain' => $this->input->post('email_supply_chain'),
+                'phone_supply_chain' => $this->input->post('phone_supply_chain'),
+                'q3' => $this->input->post('q3'),
+                'other_q3' =>$this->input->post('question3'),
+                'q2' => $this->input->post('q2'),
+                'other_q2' =>$this->input->post('question2'),
+                'pesan_saran_supply_chain' => $this->input->post('pesan_saran_supply_chain')
+            );
+            
+            $result = $this->home_model->update_survey($cek->survey_id,$data);
+        }else{
+            
+            $data = array(
+                'ns_id' =>$id,
+                'survey_date' =>$date,
+                'survey_company' => $cek_customer->customer_name,
+                'name_supply_chain' => $this->input->post('name_supply_chain'),
+                'email_supply_chain' => $this->input->post('email_supply_chain'),
+                'phone_supply_chain' => $this->input->post('phone_supply_chain'),
+                'q3' => $this->input->post('q3'),
+                'other_q3' =>$this->input->post('question3'),
+                'q2' => $this->input->post('q2'),
+                'other_q2' =>$this->input->post('question2'),
+                'pesan_saran_supply_chain' => $this->input->post('pesan_saran_supply_chain'),
+                'quartal' => $quartal,
+                'year' => $year,
+                'period_end_date' => $end_periode
+            );
+            
+            $result = $this->home_model->add_survey($data);
+        }
+                        
+        if(!$result)
+        {
+            $this->session->set_flashdata('error','Failed submit survey');
+        }else{
+            $this->session->set_flashdata('success','This response has been recorded! Thank you for your cooperation');
+        }
+        
+        echo json_encode($result);
+    }
+    
+    function survey_submit_all()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d H:i:s');
+        $month = date('m');
+        $year = date('Y');
+
+        $id = $this->input->post('id_customer');
+        $cb_product = $this->input->post('product_all');
+        $product = implode(", ", $cb_product);
+
+        $cek_customer = $this->home_model->cek_customer($id);
+        $cek_quartal = $this->home_model->cek_quartal($date)->row();
+        
+        if($cek_quartal){
+            $end_periode = $year.'-'.$cek_quartal->end_date_periode;
+            $cek = $this->home_model->cek_survey($id,$cek_quartal->name_periode,$year);
+            $quartal = $cek_quartal->name_periode;
+        }else{
+
+            if($month == '01' || $month == '02' || $month == '03'){
+                $quartal = 'Q1';
+            }else if($month == '04' || $month == '05' || $month == '06'){
+                $quartal = 'Q2';
+            }else if($month == '07' || $month == '08' || $month == '09'){
+                $quartal = 'Q3';
+            }else{
+                $quartal = 'Q4';
+            }
+
+            $end_periode = date("Y-m-t", strtotime($date));
+            $cek = $this->home_model->cek_survey($id,$quartal,$year);
+        }
+
+        if(count($cek) > 0){
+
+            $data = array(
+                'name_all' => $this->input->post('name_all'),
+                'email_all' => $this->input->post('email_all'),
+                'phone_all' => $this->input->post('phone_all'),
+                'sector' => $this->input->post('sector_all'),
+                'other_sector' =>$this->input->post('other_sector'),
+                'product' => $product,
+                'q1' => $this->input->post('q1_all'),
+                'other_q1' =>$this->input->post('questionall'),
+                'q2' => $this->input->post('q2_all'),
+                'other_q2' =>$this->input->post('question_all'),
+                'q3' => $this->input->post('q3_all'),
+                'other_q3' =>$this->input->post('question3_all'),
+                'q6' => $this->input->post('q6_all'),
+                'q41' => $this->input->post('q41_all'),
+                'q42' => $this->input->post('q42_all'),
+                'q43' => $this->input->post('q43_all'),
+                'q44' => $this->input->post('q44_all'),
+                'q51' => $this->input->post('q51_all'),
+                'q52' => $this->input->post('q52_all'),
+                'q53' => $this->input->post('q53_all'),
+                'pesan_saran_all' => $this->input->post('pesan_saran_all')
+            );
+            
+            $result = $this->home_model->update_survey($cek->survey_id,$data);
+        }else{
+            
+            $data = array(
+                'ns_id' =>$id,
+                'survey_date' =>$date,
+                'survey_company' => $cek_customer->customer_name,
+                'name_all' => $this->input->post('name_all'),
+                'email_all' => $this->input->post('email_all'),
+                'phone_all' => $this->input->post('phone_all'),
+                'sector' => $this->input->post('sector_all'),
+                'other_sector' =>$this->input->post('other_sector'),
+                'product' => $product,
+                'q1' => $this->input->post('q1_all'),
+                'other_q1' =>$this->input->post('questionall'),
+                'q2' => $this->input->post('q2_all'),
+                'other_q2' =>$this->input->post('question_all'),
+                'q3' => $this->input->post('q3_all'),
+                'other_q3' =>$this->input->post('question3_all'),
+                'q6' => $this->input->post('q6_all'),
+                'q41' => $this->input->post('q41_all'),
+                'q42' => $this->input->post('q42_all'),
+                'q43' => $this->input->post('q43_all'),
+                'q44' => $this->input->post('q44_all'),
+                'q51' => $this->input->post('q51_all'),
+                'q52' => $this->input->post('q52_all'),
+                'q53' => $this->input->post('q53_all'),
+                'pesan_saran_all' => $this->input->post('pesan_saran_all'),
+                'quartal' => $quartal,
+                'year' => $year,
+                'period_end_date' => $end_periode
+            );
+            
+            $result = $this->home_model->add_survey($data);
+        }
+                        
+        if(!$result)
+        {
+            $this->session->set_flashdata('error','Failed submit survey');
+        }else{
+            $this->session->set_flashdata('success','This response has been recorded! Thank you for your cooperation');
+        }
+        
+        echo json_encode($result);
     }
 
     function view_sk_jakarta()

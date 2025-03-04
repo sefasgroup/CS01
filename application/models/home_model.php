@@ -1734,5 +1734,12 @@
                   return $result->row();
             }
 
+            function update_survey($id,$data)
+            {
+                  $this->db->where('survey_id',$id);
+                  $this->db->update('db_surveys', $data);
+                  return $this->db->affected_rows();
+            }
+
 
       }
