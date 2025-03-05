@@ -223,7 +223,7 @@
 									<label><input type="radio" name="sector" value="Fleet">Fleet</label>
 								</div>
 							</div>
-							<div class="col-sm-3">
+							<div class="col-sm-2">
 								<div class="radio gap">
 									<label><input type="radio" name="sector" value="General Manufacture">General Manufacture</label>
 								</div>
@@ -685,7 +685,7 @@
 					<div class="components">
 						<p class="labels">Perusahaan Bapak/Ibu bergerak di sektor <span class="danger">*</span></p>
 						<div class="row">
-							<div class="col-sm-2 custom-gap">
+							<div class="col-sm-2">
 								<div class="radio gap">
 									<label><input type="radio" name="sector_all" value="Agriculture">Agriculture</label>
 								</div>
@@ -699,7 +699,7 @@
 									<label><input type="radio" name="sector_all" value="Fleet">Fleet</label>
 								</div>
 							</div>
-							<div class="col-sm-2 custom-gap">
+							<div class="col-sm-2">
 								<div class="radio gap">
 									<label><input type="radio" name="sector_all" value="General Manufacture">General Manufacture</label>
 								</div>
@@ -713,7 +713,7 @@
 									<label><input type="radio" name="sector_all" value="Power and Energy">Power and Energy</label>
 								</div>
 							</div>
-							<div class="col-sm-2 custom-gap">
+							<div class="col-sm-2">
 								<div class="radio gap">
 									<label><input type="radio" name="sector_all" value="Steel">Steel</label>
 								</div>
@@ -722,11 +722,11 @@
 								</div>
 								<div class="radio gap">
 									<label><input type="radio" name="sector_all" id="other_all" value="Others">Lainnya</label>
-									<input type="text" class="other form-control" name="other_sector" id="sector_all" disabled autocomplete="off">
+									<span><input type="text" class="other form-control" name="other_sector" id="sector_all" disabled autocomplete="off"></span>
 								</div>
 							</div>
+							<span class="help-block"><?php echo form_error('sector_all');?></span>
 						</div>
-						<span class="help-block"><?php echo form_error('sector');?></span>
 					</div>
 					
 					<div class="components">
