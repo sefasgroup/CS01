@@ -20,7 +20,7 @@
 	<!-- Custom style -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/custom-style.css">
 	<!-- Google Font Roboto-->
-	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	<!-- Sweet Alert -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
 
@@ -246,7 +246,7 @@
 								</div>
 								<div class="radio gap">
 									<label><input type="radio" name="sector" id="other" value="Others">Lainnya:</label>
-									<input type="text" class="other form-control" name="other_sector" id="sector" disabled autocomplete="off">
+									<span><input type="text" class="other form-control" name="other_sector" id="sector" disabled autocomplete="off"></span>
 								</div>
 							</div>
 							<span class="help-block"><?php echo form_error('sector');?></span>
@@ -387,7 +387,7 @@
 					
 					<div class="components">
 						<p class="labels">Produk apa yang saat ini digunakan <span class="danger">*</span></p>
-						<div class="row custom-row">
+						<div class="row">
 							<div class="col-sm-1 custom-gap">
 								<div class="checkbox gap">
 									<label>
@@ -614,7 +614,7 @@
 						</div>
 						<div class="radio gap">
 							<label><input type="radio" name="q3" value="Tidak sesuai">Tidak sesuai</label>
-							<span class="other">Jelaskan alasannya :</span>
+							<p>Jelaskan alasannya :</p>
 							<input type="text" class="form-control" name="question3" id="question3" disabled autocomplete="off">
 						</div>
 						<span class="help-block"><?php echo form_error('q3');?></span>
@@ -627,7 +627,7 @@
 						</div>
 						<div class="radio gap">
 							<label><input type="radio" name="q2" value="Tidak tepat waktu">Tidak tepat waktu</label>
-							<span>Jelaskan alasannya :</span>
+							<p>Jelaskan alasannya :</p>
 							<input type="text" class="form-control" name="question2" id="question2" disabled autocomplete="off">
 						</div>
 						<span class="help-block"><?php echo form_error('q2');?></span>
@@ -684,7 +684,7 @@
 					
 					<div class="components">
 						<p class="labels">Perusahaan Bapak/Ibu bergerak di sektor <span class="danger">*</span></p>
-						<div class="row custom-row">
+						<div class="row">
 							<div class="col-sm-2 custom-gap">
 								<div class="radio gap">
 									<label><input type="radio" name="sector_all" value="Agriculture">Agriculture</label>
@@ -732,7 +732,7 @@
 					<div class="components">
 						<p class="labels">Produk apa yang saat ini digunakan <span class="danger">*</span></p>
 						<div class="row custom-row">
-							<div class="col-sm-2 custom-gap">
+							<div class="col-sm-1 custom-gap">
 								<div class="checkbox gap">
 									<label>
 									<input type="checkbox" name="product_all[]" value="Alexia">
@@ -758,7 +758,7 @@
 									</label>
 								</div>
 							</div>
-							<div class="col-sm-2 custom-gap">
+							<div class="col-sm-1 custom-gap">
 								<div class="checkbox gap">
 									<label>
 									<input type="checkbox" name="product_all[]" value="Diala">
@@ -784,7 +784,7 @@
 									</label>
 								</div>
 							</div>
-							<div class="col-sm-2 custom-gap">
+							<div class="col-sm-1 custom-gap">
 								<div class="checkbox gap">
 									<label>
 									<input type="checkbox" name="product_all[]" value="Melina">
@@ -810,7 +810,7 @@
 									</label>
 								</div>
 							</div>
-							<div class="col-sm-2 custom-gap">
+							<div class="col-sm-1 custom-gap">
 								<div class="checkbox gap">
 									<label>
 									<input type="checkbox" name="product_all[]" value="Refrigeration">
@@ -836,7 +836,7 @@
 									</label>
 								</div>
 							</div>
-							<div class="col-sm-2 custom-gap">
+							<div class="col-sm-1 custom-gap">
 								<div class="checkbox gap">
 									<label>
 									<input type="checkbox" name="product_all[]" value="Tellus">
@@ -875,8 +875,8 @@
 								<label><input type="radio" name="q1_all" value="Ketersediaan produk">Ketersediaan produk</label>
 							</div>
 							<div class="radio gap">
-								<label><input type="radio" name="q1_all" value="Lainnya">Lainnya</label>
-								<span><input type="text" class="col-sm-12 form-control" name="questionall" id="questionall" disabled autocomplete="off"></span>
+								<label><input type="radio" name="q1_all" value="Lainnya">Lainnya</label><br>
+								<span><input type="text" class="form-control" name="questionall" id="questionall" disabled autocomplete="off"></span>
 							</div>
 						<span class="help-block"><?php echo form_error('q1_all');?></span>
 					</div>
@@ -950,7 +950,7 @@
 						</div>
 						<div class="radio gap">
 							<label><input type="radio" name="q2_all" value="Tidak tepat waktu">Tidak tepat waktu</label>
-							<span>Jelaskan alasannya :</span>
+							<p>Jelaskan alasannya :</p>
 							<input type="text" class="form-control" name="question_all" id="question_all" disabled autocomplete="off">
 						</div>
 						<span class="help-block"><?php echo form_error('q2_all');?></span>
@@ -1005,7 +1005,7 @@
 						</div>
 						<div class="radio gap">
 							<label><input type="radio" name="q3_all" value="Tidak sesuai">Tidak sesuai</label>
-							<span class="other">Jelaskan alasannya :</span>
+							<p>Jelaskan alasannya :</p>
 							<input type="text" class="form-control" name="question3_all" id="question3_all" disabled autocomplete="off">
 						</div>
 						<span class="help-block"><?php echo form_error('q3_all');?></span>

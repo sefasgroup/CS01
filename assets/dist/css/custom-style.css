@@ -177,10 +177,6 @@
         outline: 1px solid #888 !important;  
     }
 
-    .form-group {
-        margin-bottom: 24px;
-    }
-
     /* Optional: Memberikan jarak antar radio button */
     .radio.gap {
         margin-bottom: 20px; /* Jarak antar radio button */
@@ -191,6 +187,12 @@
         width: 100%; /* Input menyesuaikan lebar */
         margin-top: 10px;
         margin-bottom: 10px;
+    }
+    
+
+    .radio.gap p {
+        margin-top: 4px;
+        margin-bottom: 4px;
         margin-left: 20px;
     }
     
@@ -215,7 +217,7 @@
     }
 
     .checkbox.gap {
-        margin-bottom: 24px; /* Jarak antar checkbox button */
+        margin-bottom: 20px; /* Jarak antar checkbox button */
     }
     
     .checkbox.gap span {
@@ -225,7 +227,7 @@
 
     .jabatan{
         color: var(--Primary-Sefas, #F36C21);
-        font-family: Roboto;
+        font-family: "Roboto";
         font-size: 20px;
         font-style: italic;
         font-weight: 700;
@@ -237,7 +239,7 @@
     .labels{
         color: var(--Base-Black, #0A0A0A);
         /* Text/Body/Base/Medium */
-        font-family: Roboto;
+        font-family: "Roboto";
         font-size: 16px;
         font-style: normal;
         font-weight: 500;
@@ -247,7 +249,7 @@
     .labels-small{
         color: var(--Base-Black, #0A0A0A);
         /* Text/Body/Xs/Regular */
-        font-family: Roboto;
+        font-family: "Roboto";
         font-size: 12px;
         font-style: italic;
         font-weight: 400;
@@ -257,7 +259,7 @@
     .labels-complete{
         color: var(--Gray-gray-400, #CCC);
         /* Text/Body/Xs/Regular */
-        font-family: Roboto;
+        font-family: "Roboto";
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
@@ -292,7 +294,6 @@
         margin-right: 16px;
         vertical-align: middle;
     }
-    
 
     @media (max-width: 768px) {
         .sosmed {
@@ -307,5 +308,3 @@
             padding-right: 60px;
         }
     }
-    
-    

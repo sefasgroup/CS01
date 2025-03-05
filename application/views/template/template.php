@@ -28,7 +28,8 @@
 <script src="<?php echo base_url("assets/dist/js/adminlte.min.js") ?>"></script>
 <script src="<?php echo base_url("assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js") ?>"></script>
 <script src="<?php echo base_url("assets/bower_components/jquery-knob/js/jquery.knob.js") ?>"></script>
-<!-- Google Font --><link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <script src="<?php echo base_url("assets/dist/js/sweetalert.min.js") ?>"></script>
