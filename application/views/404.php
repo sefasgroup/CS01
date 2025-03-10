@@ -50,16 +50,17 @@
 
   <body class="hold-transition login-page">
 
-	<div class="sosmed">Follow us:
+	
+  	<div class="sosmed">
+		<p>Follow us:</p>
 		<a href="https://www.instagram.com/sefasgroup/?hl=id">
-			<img src="<?php echo base_url(); ?>/assets/photo/ig.png" height="60px">
+			<img src="<?php echo base_url(); ?>/assets/dist/icon/mdi_instagram.svg" height="20px">sefasgroup
 		</a> 
 		<a href="https://id.linkedin.com/company/sefas-group">
-			<img src="<?php echo base_url(); ?>/assets/photo/linkedin.png" height="60px">
+			<img src="<?php echo base_url(); ?>/assets/dist/icon/mdi_linkedin.svg" height="20px">Sefas Group
 		</a>
 		<a href="https://www.sefasgroup.com">
-			<img src="<?php echo base_url(); ?>/assets/dist/icon/mdi_web.svg" height="20px">
-			sefasgroup.com
+			<img src="<?php echo base_url(); ?>/assets/dist/icon/mdi_web.svg" height="20px">sefasgroup.com
 		</a>
 	</div>
 

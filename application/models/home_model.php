@@ -1729,7 +1729,7 @@
             {
                   $this->crmdb->select('*');
                   $this->crmdb->from('db_customer');
-                  $this->crmdb->where('customer_ns_uniqueid',$id);
+                  $this->crmdb->where('customer_ns_internalid',$id);
                   $result = $this->crmdb->get();
                   return $result->row();
             }

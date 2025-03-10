@@ -48,16 +48,16 @@
 
   <body>
 
-	<div class="sosmed">Follow us:
+	<div class="sosmed">
+		<p>Follow us:</p>
 		<a href="https://www.instagram.com/sefasgroup/?hl=id">
-			<img src="<?php echo base_url(); ?>/assets/photo/ig.png" height="60px">
+			<img src="<?php echo base_url(); ?>/assets/dist/icon/mdi_instagram.svg" height="20px">sefasgroup
 		</a> 
 		<a href="https://id.linkedin.com/company/sefas-group">
-			<img src="<?php echo base_url(); ?>/assets/photo/linkedin.png" height="60px">
+			<img src="<?php echo base_url(); ?>/assets/dist/icon/mdi_linkedin.svg" height="20px">Sefas Group
 		</a>
 		<a href="https://www.sefasgroup.com">
-			<img src="<?php echo base_url(); ?>/assets/dist/icon/mdi_web.svg" height="20px">
-			sefasgroup.com
+			<img src="<?php echo base_url(); ?>/assets/dist/icon/mdi_web.svg" height="20px">sefasgroup.com
 		</a>
 	</div>
   	<div class="containers">
@@ -180,7 +180,7 @@
 				<fieldset id="fieldset-procurement" style="display: none;">
 					<p class="jabatan">PROCUREMENT</p>
 					
-					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_uniqueid; ?>">
+					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_internalid; ?>">
 
 					<div class="form-group form-group-sm">
 						<label for="name_procurement" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
@@ -358,7 +358,7 @@
 				<fieldset id="fieldset-technical" style="display: none;">
 					<p class="jabatan">TECHNICAL</p>
 
-					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_uniqueid; ?>">
+					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_internalid; ?>">
 
 					<div class="form-group form-group-sm">
 						<label for="name_technical" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
@@ -581,7 +581,7 @@
 				<fieldset id="fieldset-supply-chain" style="display: none;">
 					<p class="jabatan">SUPPLY CHAIN</p>
 
-					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_uniqueid; ?>">
+					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_internalid; ?>">
 
 					<div class="form-group form-group-sm">
 						<label for="name_supply_chain" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
@@ -655,7 +655,7 @@
 				<fieldset id="fieldset-all" style="display: none;">
 					<p class="jabatan">ALL</p>
 
-					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_uniqueid; ?>">
+					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_internalid; ?>">
 
 					<div class="form-group form-group-sm">
 						<label for="name_all" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
@@ -875,7 +875,7 @@
 								<label><input type="radio" name="q1_all" value="Ketersediaan produk">Ketersediaan produk</label>
 							</div>
 							<div class="radio gap">
-								<label><input type="radio" name="q1_all" value="Lainnya">Lainnya</label><br>
+								<label><input type="radio" name="q1_all" value="Lainnya">Lainnya</label>
 								<span><input type="text" class="form-control" name="questionall" id="questionall" disabled autocomplete="off"></span>
 							</div>
 						<span class="help-block"><?php echo form_error('q1_all');?></span>

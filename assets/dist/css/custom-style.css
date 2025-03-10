@@ -4,11 +4,12 @@
     }
 
     .sosmed {
-        position: relative;
-        left: 0px;
-        top: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
         width: 100%;
-        z-index: 1;
+        height: 60px;
         background-color: #F36C21;
         text-align: center;
         color: #fff;
@@ -16,9 +17,13 @@
         padding:20px 0;
     }
 
+    .sosmed p{
+        margin: 0;
+    }
+/* 
     .sosmed span {
         padding-left: 40px;
-    }
+    } */
 
     .sosmed a:link, a:visited, a:active {
         color: #fff;	
@@ -298,6 +303,8 @@
     @media (max-width: 768px) {
         .sosmed {
             margin-bottom: 40px;
+            flex-wrap: wrap;
+            height: auto;
         }
 
         .sosmed span {
