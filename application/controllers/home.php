@@ -661,7 +661,7 @@ class Home extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->load->view('home');
+            $this->load->view('404');
         }
         else
         {
