@@ -5,9 +5,6 @@
         public function __construct() {
                 parent::__construct();
                 $this->otherdb2 = $this->load->database('otherdb2', TRUE); //SP KALTIM
-                $this->otherdb3 = $this->load->database('otherdb3', TRUE); //SP KALSEL
-                $this->otherdb4 = $this->load->database('otherdb4', TRUE); //SP CICLEGON
-                $this->otherdb5 = $this->load->database('otherdb5', TRUE); //SP TANGERANG
         }
 
         function all($quartal,$year)

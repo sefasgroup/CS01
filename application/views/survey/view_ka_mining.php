@@ -98,6 +98,9 @@
     </b>
     </p>
   </div>
+  <div class="box-footer">
+      <a href="<?php echo site_url('home/get_survey_ka_mining');?>" class="btn btn-sm btn-default">Back</a>
+  </div>
 </div>
 </div>
 </section>

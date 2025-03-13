@@ -903,6 +903,7 @@ class Home extends CI_Controller {
 
             $data = array(
                 'name_procurement' => $this->input->post('name_procurement'),
+                'position_procurement' => $this->input->post('position_procurement'),
                 'email_procurement' => $this->input->post('email_procurement'),
                 'phone_procurement' => $this->input->post('phone_procurement'),
                 'sector' => $this->input->post('sector'),
@@ -925,6 +926,7 @@ class Home extends CI_Controller {
                 'survey_date' =>$date,
                 'survey_company' => $cek_customer->customer_name,
                 'name_procurement' => $this->input->post('name_procurement'),
+                'position_procurement' => $this->input->post('position_procurement'),
                 'email_procurement' => $this->input->post('email_procurement'),
                 'phone_procurement' => $this->input->post('phone_procurement'),
                 'sector' => $this->input->post('sector'),
@@ -992,6 +994,7 @@ class Home extends CI_Controller {
 
             $data = array(
                 'name_technical' => $this->input->post('name_technical'),
+                'position_technical' => $this->input->post('position_technical'),
                 'email_technical' => $this->input->post('email_technical'),
                 'phone_technical' => $this->input->post('phone_technical'),
                 'product' => $product,
@@ -1010,6 +1013,7 @@ class Home extends CI_Controller {
                 'survey_date' =>$date,
                 'survey_company' => $cek_customer->customer_name,
                 'name_technical' => $this->input->post('name_technical'),
+                'position_technical' => $this->input->post('position_technical'),
                 'email_technical' => $this->input->post('email_technical'),
                 'phone_technical' => $this->input->post('phone_technical'),
                 'product' => $product,
@@ -1070,6 +1074,7 @@ class Home extends CI_Controller {
 
             $data = array(
                 'name_supply_chain' => $this->input->post('name_supply_chain'),
+                'position_supply_chain' => $this->input->post('position_supply_chain'),
                 'email_supply_chain' => $this->input->post('email_supply_chain'),
                 'phone_supply_chain' => $this->input->post('phone_supply_chain'),
                 'q3' => $this->input->post('q3'),
@@ -1087,6 +1092,7 @@ class Home extends CI_Controller {
                 'survey_date' =>$date,
                 'survey_company' => $cek_customer->customer_name,
                 'name_supply_chain' => $this->input->post('name_supply_chain'),
+                'position_supply_chain' => $this->input->post('position_supply_chain'),
                 'email_supply_chain' => $this->input->post('email_supply_chain'),
                 'phone_supply_chain' => $this->input->post('phone_supply_chain'),
                 'q3' => $this->input->post('q3'),
@@ -1150,6 +1156,7 @@ class Home extends CI_Controller {
 
             $data = array(
                 'name_all' => $this->input->post('name_all'),
+                'position_all' => $this->input->post('position_all'),
                 'email_all' => $this->input->post('email_all'),
                 'phone_all' => $this->input->post('phone_all'),
                 'sector' => $this->input->post('sector_all'),
@@ -1180,6 +1187,7 @@ class Home extends CI_Controller {
                 'survey_date' =>$date,
                 'survey_company' => $cek_customer->customer_name,
                 'name_all' => $this->input->post('name_all'),
+                'position_all' => $this->input->post('position_all'),
                 'email_all' => $this->input->post('email_all'),
                 'phone_all' => $this->input->post('phone_all'),
                 'sector' => $this->input->post('sector_all'),

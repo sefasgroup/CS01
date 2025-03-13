@@ -60,6 +60,7 @@
 			<img src="<?php echo base_url(); ?>/assets/dist/icon/mdi_web.svg" height="20px">sefasgroup.com
 		</a>
 	</div>
+	
   	<div class="containers">
   		<!-- <form name="form-validate" id="surveyForm" enctype="multipart/form-data" class="form-horizontal" method="post" action="<?php echo site_url(); ?>home/survey/<?php echo $id;?>"> -->
   		<div class="header">
@@ -181,6 +182,7 @@
 					<p class="jabatan">PROCUREMENT</p>
 					
 					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_internalid; ?>">
+					<input type="hidden" name="position_procurement" id="position_procurement" value="">
 
 					<div class="form-group form-group-sm">
 						<label for="name_procurement" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
@@ -359,6 +361,7 @@
 					<p class="jabatan">TECHNICAL</p>
 
 					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_internalid; ?>">
+					<input type="hidden" name="position_technical" id="position_technical" value="">
 
 					<div class="form-group form-group-sm">
 						<label for="name_technical" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
@@ -582,6 +585,7 @@
 					<p class="jabatan">SUPPLY CHAIN</p>
 
 					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_internalid; ?>">
+					<input type="hidden" name="position_supply_chain" id="position_supply_chain" value="">
 
 					<div class="form-group form-group-sm">
 						<label for="name_supply_chain" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
@@ -656,6 +660,7 @@
 					<p class="jabatan">ALL</p>
 
 					<input type="hidden" name="id_customer" value="<?php echo $data->customer_ns_internalid; ?>">
+					<input type="hidden" name="position_all" id="position_all" value="">
 
 					<div class="form-group form-group-sm">
 						<label for="name_all" class="col-sm-12 labels">Nama Lengkap <span class="danger">*</span></label>
@@ -1513,5 +1518,27 @@ $(document).ready(function () {
 			});
 		}
     });
+
+	
+    $("input[name='jabatan']").change(function(){
+      
+		var jabatanVal = $(this).val(); // Ambil value jabatan
+
+		if(jabatanVal === 'procurement'){
+			$("#position_procurement").val(jabatanVal);
+		}else if(jabatanVal === 'technical'){
+			$("#position_technical").val(jabatanVal);
+		}else if(jabatanVal === 'supply-chain'){
+			$("#position_supply_chain").val(jabatanVal);
+		}else if(jabatanVal === 'all'){
+			$("#position_all").val(jabatanVal);
+		}else{
+			$("#position_all").val("");
+			$("#position_procurement").val("");
+			$("#position_technical").val("");
+			$("#position_supply_chain").val("");
+		}
+  	});
+  
 });
 </script>

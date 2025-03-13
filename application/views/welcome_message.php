@@ -17,16 +17,8 @@
     <div class="input-group input-group-sm">
       <select name="sbu" class="form-control" style="width: 200px">
           <option value="">- SBU -</option>
-          <option value="SK Jakarta Selatan" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'SK Jakarta Selatan') { echo "selected";} ?>>SK Jakarta Selatan</option>
-          <option value="SP Kaltim" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'SP Kaltim') { echo "selected";} ?>>SP Kaltim</option>
-          <option value="SP Kalsel" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'SP Kalsel') { echo "selected";} ?>>SP Kalsel</option>
-          <option value="TP Cilegon" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'TP Cilegon') { echo "selected";} ?>>TP Cilegon</option>
-          <option value="TP Tangerang" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'TP Tangerang') { echo "selected";} ?>>TP Tangerang</option>
-          <option value="KA Mining" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'KA Mining') { echo "selected";} ?>>KA Mining</option>
-          <option value="SSP" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'SSP') { echo "selected";} ?>>SSP</option>
-          <option value="BCI" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'BCI') { echo "selected";} ?>>BCI</option>
-          <option value="SK Jakarta Utara" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'SK Jakarta Utara') { echo "selected";} ?>>SK Jakarta Utara</option>
-          <option value="SP Kaltara" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'SP Kaltara') { echo "selected";} ?>>SP Kaltara</option>
+          <option value="CSB" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'CSB') { echo "selected";} ?>>CSB</option>
+          <option value="EHSB" <?php if (isset($_GET['sbu']) && $_GET['sbu'] == 'EHSB') { echo "selected";} ?>>EHSB</option>
       </select>
       <select name="quartal" class="form-control" style="width: 200px">
           <option value="">- Quartal -</option>

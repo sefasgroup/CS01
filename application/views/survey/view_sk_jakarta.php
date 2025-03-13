@@ -24,7 +24,18 @@
       }
     ?>
     </b></p>
-    <p>Posisi / Jabatan : <b><?php echo $baris->survey_position;?></b></p>
+    <p>Posisi / Jabatan : <b>
+    <?php 
+            if($baris->survey_position != ''){
+              echo $baris->survey_position;
+            }else if($baris->position_all != ''){
+              echo $baris->position_all;
+            }else{
+              $position_surveyor = array_filter([$baris->position_procurement, $baris->position_technical, $baris->position_supply_chain]); 
+              echo implode(', ', $position_surveyor);
+            }
+    ?>
+    </b></p>
     <p>Perusahaan : <b><?php echo $baris->survey_company;?></b></p>
     <p>Email : <b>
     <?php 
@@ -98,6 +109,9 @@
     </b>
     </p>
   </div>
+    <div class="box-footer">
+        <a href="<?php echo site_url('home/get_survey_sk_jakarta');?>" class="btn btn-sm btn-default">Back</a>
+    </div>
 </div>
 </div>
 </section>

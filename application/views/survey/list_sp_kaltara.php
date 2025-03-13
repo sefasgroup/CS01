@@ -1,5 +1,5 @@
 <section class="content-header">
-  <h1>LIST SURVEY SP KALTIM</h1>
+  <h1>LIST SURVEY SP KALTARA</h1>
   <ol class="breadcrumb">
     <li><a href="<?php echo site_url('home/get_survey_sp_kaltara'); ?>"><i class="fa fa-list"></i> SP Kaltim</a></li>
     <li class="active">List</li>
@@ -84,7 +84,18 @@
             }
           ?>
         </td>
-        <td><?php echo $baris->survey_position;?></td>
+        <td>
+          <?php 
+            if($baris->survey_position != ''){
+              echo $baris->survey_position;
+            }else if($baris->position_all != ''){
+              echo $baris->position_all;
+            }else{
+              $position_surveyor = array_filter([$baris->position_procurement, $baris->position_technical, $baris->position_supply_chain]); 
+              echo implode(', ', $position_surveyor);
+            }
+          ?>
+        </td>
         <td><?php echo $baris->ns_id;?></td>
         <td><?php echo $baris->survey_company;?></td>
         <td>
