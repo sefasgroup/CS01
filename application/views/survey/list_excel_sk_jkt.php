@@ -1,6 +1,6 @@
 <?php
   header("Content-type: application/vnd-ms-excel");
-  header("Content-Disposition: attachment; filename=file.xls");
+  header("Content-Disposition: attachment; filename=css_sk_jkt.xls");
   header("Pragma: no-cache");
   header("Expires: 0");
 ?>
@@ -16,6 +16,27 @@
         <th>Perusahaan</th>
         <th>Email</th>
         <th>No. Telp.</th>
+
+        <th>Name Procurement</th>
+        <th>Email Procurement</th>
+        <th>Phone Procurement</th>
+        <th>Pesan Saran Procurement</th>
+        
+        <th>Name Technical</th>
+        <th>Email Technical</th>
+        <th>Phone Technical</th>
+        <th>Pesan Saran Technical</th>
+
+        <th>Name Supply Chain</th>
+        <th>Email Supply Chain</th>
+        <th>Phone Supply Chain</th>
+        <th>Pesan Saran Supply Chain</th>
+        
+        <th>Name Management</th>
+        <th>Email Management</th>
+        <th>Phone Management</th>
+        <th>Pesan Saran Management</th>
+        
         <th>Sector</th>
         <th>Product</th>
         <th>Menurut Bapak/Ibu, manakah hal yang paling penting dalam memilih rekanan supplier?</th>
@@ -46,6 +67,27 @@
         <td><?php echo $baris->survey_company;?></td>
         <td><?php echo $baris->survey_email;?></td>
         <td><?php echo $baris->survey_phone;?></td>
+
+        <td><?php echo $baris->name_procurement;?></td>
+        <td><?php echo $baris->email_procurement;?></td>
+        <td><?php echo $baris->phone_procurement;?></td>
+        <td><?php echo $baris->pesan_saran_procurement;?></td>
+
+        <td><?php echo $baris->name_technical;?></td>
+        <td><?php echo $baris->email_technical;?></td>
+        <td><?php echo $baris->phone_technical;?></td>
+        <td><?php echo $baris->pesan_saran_technical;?></td>
+
+        <td><?php echo $baris->name_supply_chain;?></td>
+        <td><?php echo $baris->email_supply_chain;?></td>
+        <td><?php echo $baris->phone_supply_chain;?></td>
+        <td><?php echo $baris->pesan_saran_supply_chain;?></td>
+
+        <td><?php echo $baris->name_all;?></td>
+        <td><?php echo $baris->email_all;?></td>
+        <td><?php echo $baris->phone_all;?></td>
+        <td><?php echo $baris->pesan_saran_all;?></td>
+
         <td><?php if($baris->sector=="Others"){echo $baris->other_sector;}else{echo $baris->sector;} ?></td>
         <td><?php echo $baris->product;?></td>
         <td><?php echo $baris->q1;?><?php if($baris->q1=="Lainnya"){echo ", ".$baris->other_q1;} ?></td>

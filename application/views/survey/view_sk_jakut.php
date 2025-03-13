@@ -24,7 +24,18 @@
       }
     ?>
     </b></p>
-    <p>Posisi / Jabatan : <b><?php echo $baris->survey_position;?></b></p>
+    <p>Posisi / Jabatan : <b>
+    <?php 
+            if($baris->survey_position != ''){
+              echo $baris->survey_position;
+            }else if($baris->position_all != ''){
+              echo $baris->position_all;
+            }else{
+              $position_surveyor = array_filter([$baris->position_procurement, $baris->position_technical, $baris->position_supply_chain]); 
+              echo implode(', ', $position_surveyor);
+            }
+    ?>
+    </b></p>
     <p>Perusahaan : <b><?php echo $baris->survey_company;?></b></p>
     <p>Email : <b>
     <?php 
